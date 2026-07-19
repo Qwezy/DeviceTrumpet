@@ -8,11 +8,6 @@
              xmlns:views="clr-namespace:EarTrumpet.UI.Views"
              IsTabStop="False">
     <Grid Name="GridRoot">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-
         <ListViewItem Name="DeviceListItem"
                       AutomationProperties.Name="{Binding Device.AccessibleName}"
                       Tag="{x:Static views:DeviceView.DeviceListItemKey}">
@@ -130,20 +125,5 @@
             </Border>
         </ListViewItem>
 
-        <Border Grid.Row="1" Theme:Brush.Background=":=Background, Flyout:FlyoutBackground">
-            <Border.Style>
-                <Style TargetType="Border">
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding IsAppListVisible}" Value="False">
-                            <Setter Property="Visibility" Value="Collapsed" />
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </Border.Style>
-            <ListView Name="AppList"
-                      Margin="{StaticResource VolumeAppListMargin}"
-                      AutomationProperties.Name="{x:Static resx:Resources.AppsListAccessibleText}"
-                      ItemsSource="{Binding Device.Apps, Mode=OneWay}" />
-        </Border>
     </Grid>
 </UserControl>

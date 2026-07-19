@@ -80,25 +80,8 @@ namespace EarTrumpet.UI.ViewModels
         {
             if (IsExpanded || Devices.Count == 0)
             {
-                device.Apps.CollectionChanged += Apps_CollectionChanged;
                 Devices.Insert(0, device);
             }
-        }
-
-        private void Apps_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
-        {
-            switch (e.Action)
-            {
-                case NotifyCollectionChangedAction.Remove:
-                    if (Dialog.Focused is FocusedAppItemViewModel &&
-                        (IAppItemViewModel)e.OldItems[0] == ((FocusedAppItemViewModel)Dialog.Focused)?.App)
-                    {
-                        Dialog.IsVisible = false;
-                    }
-                    break;
-            }
-
-            InvalidateWindowSize();
         }
 
         private void RemoveDevice(string id)
@@ -106,7 +89,6 @@ namespace EarTrumpet.UI.ViewModels
             var existing = Devices.FirstOrDefault(d => d.Id == id);
             if (existing != null)
             {
-                existing.Apps.CollectionChanged -= Apps_CollectionChanged;
                 Devices.Remove(existing);
             }
         }
@@ -172,7 +154,6 @@ namespace EarTrumpet.UI.ViewModels
                     // We found the device in AllDevices which was not in Devices.
                     // Thus: We are collapsed and can dump the single device in Devices:
                     Devices.Clear();
-                    foundAllDevice.Apps.CollectionChanged += Apps_CollectionChanged;
                     Devices.Add(foundAllDevice);
                 }
             }
@@ -200,7 +181,6 @@ namespace EarTrumpet.UI.ViewModels
                 {
                     if (!Devices.Contains(device))
                     {
-                        device.Apps.CollectionChanged += Apps_CollectionChanged;
                         Devices.Insert(0, device);
                     }
                 }
@@ -213,7 +193,6 @@ namespace EarTrumpet.UI.ViewModels
                     var device = Devices[i];
                     if (device.Id != _mainViewModel.Default?.Id)
                     {
-                        device.Apps.CollectionChanged -= Apps_CollectionChanged;
                         Devices.Remove(device);
                     }
                 }
@@ -291,11 +270,7 @@ namespace EarTrumpet.UI.ViewModels
         {
             Dialog.IsVisible = false;
 
-            if (vm is IAppItemViewModel)
-            {
-                Dialog.Focused = new FocusedAppItemViewModel(_mainViewModel, (IAppItemViewModel)vm);
-            }
-            else if (vm is DeviceViewModel)
+            if (vm is DeviceViewModel)
             {
                 var deviceViewModel = new FocusedDeviceViewModel(_mainViewModel, (DeviceViewModel)vm);
                 if (deviceViewModel.IsApplicable)

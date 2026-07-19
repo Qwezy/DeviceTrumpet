@@ -4,8 +4,6 @@ using EarTrumpet.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.Linq;
 
 namespace EarTrumpet.UI.ViewModels
 {
@@ -37,7 +35,9 @@ namespace EarTrumpet.UI.ViewModels
         public string DeviceDescription => ((IAudioDeviceWindowsAudio)_device).DeviceDescription;
         public string EnumeratorName => ((IAudioDeviceWindowsAudio)_device).EnumeratorName;
         public string InterfaceName => ((IAudioDeviceWindowsAudio)_device).InterfaceName;
-        public ObservableCollection<IAppItemViewModel> Apps { get; }
+        // Kept as an empty compatibility collection for add-ons compiled against
+        // EarTrumpet. DeviceTrumpet never adds application sessions to it.
+        public ObservableCollection<IAppItemViewModel> Apps { get; } = new ObservableCollection<IAppItemViewModel>();
 
         public bool IsDisplayNameVisible
         {
@@ -76,15 +76,7 @@ namespace EarTrumpet.UI.ViewModels
             _deviceManager = deviceManager;
             _device = device;
             _parent = new WeakReference<DeviceCollectionViewModel>(parent);
-            Apps = new ObservableCollection<IAppItemViewModel>();
-
             _device.PropertyChanged += OnPropertyChanged;
-            _device.Groups.CollectionChanged += OnCollectionChanged;
-
-            foreach (var session in _device.Groups)
-            {
-                Apps.AddSorted(new AppItemViewModel(this, session), AppItemViewModel.CompareByExeName);
-            }
 
             UpdateMasterVolumeIcon();
         }
@@ -92,7 +84,6 @@ namespace EarTrumpet.UI.ViewModels
         ~DeviceViewModel()
         {
             _device.PropertyChanged -= OnPropertyChanged;
-            _device.Groups.CollectionChanged -= OnCollectionChanged;
         }
 
         private void OnPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -114,10 +105,6 @@ namespace EarTrumpet.UI.ViewModels
         {
             base.UpdatePeakValueForeground();
 
-            foreach (var app in Apps)
-            {
-                app.UpdatePeakValueForeground();
-            }
         }
 
         private void UpdateMasterVolumeIcon()
@@ -157,91 +144,6 @@ namespace EarTrumpet.UI.ViewModels
                 {
                     IconKind = DeviceIconKind.Bar0;
                 }
-            }
-        }
-
-        private void OnCollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
-        {
-            switch (e.Action)
-            {
-                case System.Collections.Specialized.NotifyCollectionChangedAction.Add:
-                    Debug.Assert(e.NewItems.Count == 1);
-                    AddSession((IAudioDeviceSession)e.NewItems[0]);
-                    break;
-
-                case System.Collections.Specialized.NotifyCollectionChangedAction.Remove:
-                    Debug.Assert(e.OldItems.Count == 1);
-                    var existing = Apps.FirstOrDefault(x => x.Id == ((IAudioDeviceSession)e.OldItems[0]).Id);
-                    if (existing != null)
-                    {
-                        Apps.Remove(existing);
-                    }
-                    break;
-
-                default:
-                    throw new NotImplementedException();
-            }
-        }
-
-        private void AddSession(IAudioDeviceSession session)
-        {
-            var newSession = new AppItemViewModel(this, session);
-
-            foreach (var app in Apps)
-            {
-                if (app.DoesGroupWith(newSession))
-                {
-                    // Remove the fake app entry after copying any changes the user did.
-                    newSession.Volume = app.Volume;
-                    newSession.IsMuted = app.IsMuted;
-                    Apps.Remove(app);
-                    break;
-                }
-            }
-
-            Apps.AddSorted(newSession, AppItemViewModel.CompareByExeName);
-        }
-
-        public void AppMovingToThisDevice(TemporaryAppItemViewModel app)
-        {
-            app.Expired += OnAppExpired;
-
-            foreach (var childApp in app.ChildApps)
-            {
-                ((IAudioDeviceManagerWindowsAudio)_deviceManager).UnhideSessionsForProcessId(_device.Id, childApp.ProcessId);
-            }
-
-            bool hasExistingAppGroup = false;
-            foreach (var a in Apps)
-            {
-                if (a.DoesGroupWith(app))
-                {
-                    hasExistingAppGroup = true;
-                    break;
-                }
-            }
-
-            if (!hasExistingAppGroup)
-            {
-                Apps.AddSorted(app, AppItemViewModel.CompareByExeName);
-            }
-        }
-
-        private void OnAppExpired(object sender, EventArgs e)
-        {
-            var app = (TemporaryAppItemViewModel)sender;
-            if (Apps.Contains(app))
-            {
-                app.Expired -= OnAppExpired;
-                Apps.Remove(app);
-            }
-        }
-
-        internal void AppLeavingFromThisDevice(IAppItemViewModel app)
-        {
-            if (app is TemporaryAppItemViewModel)
-            {
-                Apps.Remove(app);
             }
         }
 

@@ -1,4 +1,8 @@
-# EarTrumpet
+# DeviceTrumpet
+
+DeviceTrumpet is a device-only fork of EarTrumpet. It provides endpoint volume,
+mute, peak-meter, and default-device controls without listing, mixing, or moving
+individual application audio sessions.
 
 [![GitHub issues](https://img.shields.io/github/issues/File-New-Project/EarTrumpet?style=flat-square)](https://github.com/File-New-Project/EarTrumpet/issues) [![GitHub forks](https://img.shields.io/github/forks/File-New-Project/EarTrumpet?style=flat-square)](https://github.com/File-New-Project/EarTrumpet/network) [![GitHub stars](https://img.shields.io/github/stars/File-New-Project/EarTrumpet?style=flat-square)](https://github.com/File-New-Project/EarTrumpet/stargazers) [![Nuget package](https://img.shields.io/chocolatey/v/eartrumpet?style=flat-square)](https://chocolatey.org/packages/eartrumpet) ![Maintenance status](https://img.shields.io/maintenance/yes/2025?style=flat-square)
 
@@ -36,8 +40,7 @@
 ## Features
 
 * Visualize audio with multi-channel aware peaking
-* Standalone volume mixer
-* Move apps between playback devices
+* Standalone audio-device controls
 * Default playback device management
 * Automatic updates via the Microsoft Store
 * Support for light/dark mode and all accent colors
