@@ -1,12 +1,9 @@
 ﻿using EarTrumpet.DataModel.Audio;
-using EarTrumpet.DataModel.WindowsAudio;
 using EarTrumpet.Extensions;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Linq;
 using System.Timers;
 using System.Windows.Threading;
@@ -147,64 +144,7 @@ namespace EarTrumpet.UI.ViewModels
 
         public void MoveAppToDevice(IAppItemViewModel app, DeviceViewModel dev)
         {
-            // Collect all matching apps on all devices.
-            var apps = new List<IAppItemViewModel>();
-            apps.Add(app);
-
-            foreach (var device in AllDevices)
-            {
-                foreach (var deviceApp in device.Apps)
-                {
-                    if (deviceApp.DoesGroupWith(app))
-                    {
-                        if (!apps.Contains(deviceApp))
-                        {
-                            apps.Add(deviceApp);
-                            break;
-                        }
-                    }
-                }
-            }
-
-            foreach (var foundApp in apps)
-            {
-                MoveAppToDeviceInternal(foundApp, dev);
-            }
-
-            // Collect and move any hidden/moved sessions.
-            ((IAudioDeviceManagerWindowsAudio)_deviceManager).MoveHiddenAppsToDevice(app.AppId, dev?.Id);
-        }
-
-        private void MoveAppToDeviceInternal(IAppItemViewModel app, DeviceViewModel device)
-        {
-            var searchId = device?.Id;
-            if (device == null)
-            {
-                searchId = _deviceManager.Default.Id;
-            }
-
-            try
-            {
-                DeviceViewModel oldDevice = AllDevices.First(d => d.Apps.Contains(app));
-                DeviceViewModel newDevice = AllDevices.First(d => searchId == d.Id);
-
-                bool isLogicallyMovingDevices = (oldDevice != newDevice);
-
-                var tempApp = new TemporaryAppItemViewModel(this, _deviceManager, app);
-
-                app.MoveToDevice(device?.Id, hide: isLogicallyMovingDevices);
-
-                // Update the UI if the device logically changed places.
-                if (isLogicallyMovingDevices)
-                {
-                    oldDevice.AppLeavingFromThisDevice(app);
-                    newDevice.AppMovingToThisDevice(tempApp);
-                }
-            }
-            catch (Exception ex)
-            {
-                Trace.WriteLine($"DeviceCollectionViewModel MoveAppToDeviceInternal Failed: {ex}");
-            }
+            throw new NotSupportedException("DeviceTrumpet does not support app-level audio routing.");
         }
 
         private void StartOrStopPeakTimer()
