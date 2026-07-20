@@ -2,7 +2,7 @@
 
 DeviceTrumpet is a device-only fork of EarTrumpet. It provides endpoint volume,
 mute, peak-meter, and default-device controls without listing, mixing, or moving
-individual application audio sessions.
+individual application audio sessions. I don't know how to write code, and I was doing this for myself, so Codex did the hard (read "all") work.
 
 [![GitHub issues](https://img.shields.io/github/issues/File-New-Project/EarTrumpet?style=flat-square)](https://github.com/File-New-Project/EarTrumpet/issues) [![GitHub forks](https://img.shields.io/github/forks/File-New-Project/EarTrumpet?style=flat-square)](https://github.com/File-New-Project/EarTrumpet/network) [![GitHub stars](https://img.shields.io/github/stars/File-New-Project/EarTrumpet?style=flat-square)](https://github.com/File-New-Project/EarTrumpet/stargazers) [![Nuget package](https://img.shields.io/chocolatey/v/eartrumpet?style=flat-square)](https://chocolatey.org/packages/eartrumpet) ![Maintenance status](https://img.shields.io/maintenance/yes/2025?style=flat-square)
 
