@@ -4,6 +4,7 @@ using EarTrumpet.Interop.Helpers;
 using EarTrumpet.UI.Helpers;
 using EarTrumpet.UI.ViewModels;
 using System;
+using System.Diagnostics;
 using System.Windows;
 
 namespace EarTrumpet.UI.Views
@@ -44,20 +45,30 @@ namespace EarTrumpet.UI.Views
             switch (_viewModel.State)
             {
                 case FlyoutViewState.Opening:
+                    var openSw = Stopwatch.StartNew();
                     var taskbar = WindowsTaskbar.Current;
+                    Trace.WriteLine($"FlyoutWindow Opening: WindowsTaskbar.Current took {openSw.ElapsedMilliseconds}ms");
 
                     Show();
+                    Trace.WriteLine($"FlyoutWindow Opening: Show() took {openSw.ElapsedMilliseconds}ms (cumulative)");
+
                     EnableAcrylicIfApplicable(taskbar);
+                    Trace.WriteLine($"FlyoutWindow Opening: EnableAcrylicIfApplicable took {openSw.ElapsedMilliseconds}ms (cumulative)");
+
                     PositionWindowRelativeToTaskbar(taskbar);
+                    Trace.WriteLine($"FlyoutWindow Opening: PositionWindowRelativeToTaskbar took {openSw.ElapsedMilliseconds}ms (cumulative)");
 
                     // Focus the first device if available.
                     DevicesList.FindVisualChild<DeviceView>()?.FocusAndRemoveFocusVisual();
+                    Trace.WriteLine($"FlyoutWindow Opening: FocusAndRemoveFocusVisual took {openSw.ElapsedMilliseconds}ms (cumulative)");
 
                     // Prevent showing stale adnorners.
                     this.WaitForKeyboardVisuals(() =>
                     {
+                        Trace.WriteLine($"FlyoutWindow Opening: WaitForKeyboardVisuals fired after {openSw.ElapsedMilliseconds}ms (cumulative), starting animation");
                         WindowAnimationLibrary.BeginFlyoutEntranceAnimation(this, taskbar, () =>
                         {
+                            Trace.WriteLine($"FlyoutWindow Opening: animation completed, total {openSw.ElapsedMilliseconds}ms");
                             _viewModel.ChangeState(FlyoutViewState.Open);
                         });
                     });

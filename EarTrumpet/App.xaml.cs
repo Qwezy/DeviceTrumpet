@@ -16,6 +16,7 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Interop;
+using System.Windows.Media;
 
 namespace EarTrumpet
 {
@@ -43,11 +44,7 @@ namespace EarTrumpet
 
         private void OnAppStartup(object sender, StartupEventArgs e)
         {
-            // DeviceTrumpet: was forced to RenderMode.SoftwareOnly (upstream default),
-            // which makes window-position/opacity animations noticeably laggy. Letting
-            // WPF use hardware rendering instead. If the flyout/settings windows show
-            // visual corruption (black rendering, tearing) on this machine's GPU/driver,
-            // put SoftwareOnly back.
+            RenderOptions.ProcessRenderMode = RenderMode.SoftwareOnly;
 
             Exit += (_, __) => IsShuttingDown = true;
             HasIdentity = PackageHelper.CheckHasIdentity();
