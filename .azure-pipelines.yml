@@ -1,22 +1,7 @@
-trigger:
-  branches:
-    include:
-      - master
-      - review/*
-      - experiment/*
-      - dev
-  paths:
-    exclude:
-      - '**/*.md'
-      - '.github/**/*'
-pr:
-  branches:
-    include:
-      - dev
-  paths:
-    exclude:
-      - '**/*.md'
-      - '.github/**/*'
+# DeviceTrumpet: same upstream release pipeline as main.yml, not used for
+# this personal fork. Disabled from auto-triggering on push/PR.
+trigger: none
+pr: none
 
 variables:
 - name: DOTNET_SKIP_FIRST_TIME_EXPERIENCE
