@@ -16,6 +16,8 @@ namespace EarTrumpet.DataModel.WindowsAudio.Internal
     {
         private readonly Dispatcher _dispatcher;
         private readonly IAudioEndpointVolume _deviceVolume;
+        private readonly AudioDeviceSessionCollection _sessions;
+        private readonly FilteredCollectionChain<IAudioDeviceSession> _sessionFilter;
         private readonly IAudioMeterInformation _meter;
         private readonly WeakReference<IAudioDeviceManager> _deviceManager;
         private readonly string _id;
@@ -49,11 +51,14 @@ namespace EarTrumpet.DataModel.WindowsAudio.Internal
                 _isRegistered = true;
                 _meter = device.Activate<IAudioMeterInformation>();
                 _channels = new AudioDeviceChannelCollection(_deviceVolume, _dispatcher);
+                _sessions = new AudioDeviceSessionCollection(this, _device, _dispatcher);
+                _sessionFilter = new FilteredCollectionChain<IAudioDeviceSession>(_sessions.Sessions, _dispatcher);
+                Groups = _sessionFilter.Items;
             }
-
-            // DeviceTrumpet deliberately manages endpoint controls only. App sessions
-            // are neither enumerated nor exposed to the UI.
-            Groups = new ObservableCollection<IAudioDeviceSession>();
+            else
+            {
+                Groups = new ObservableCollection<IAudioDeviceSession>();
+            }
 
             ReadProperties();
         }
@@ -174,14 +179,20 @@ namespace EarTrumpet.DataModel.WindowsAudio.Internal
             PeakValue1 = newValues[0];
             PeakValue2 = newValues[1];
 
+            foreach(var session in _sessions.Sessions.ToArray())
+            {
+                ((IAudioDeviceSessionInternal)session).UpdatePeakValueBackground();
+            }
         }
 
         public void UnhideSessionsForProcessId(int processId)
         {
+            _sessions.UnHideSessionsForProcessId(processId);
         }
 
         public void MoveHiddenAppsToDevice(string appId, string id)
         {
+            _sessions.MoveHiddenAppsToDevice(appId, id);
         }
 
         private void ReadProperties()
@@ -235,6 +246,7 @@ namespace EarTrumpet.DataModel.WindowsAudio.Internal
 
         public void AddFilter(Func<ObservableCollection<IAudioDeviceSession>, ObservableCollection<IAudioDeviceSession>> filter)
         {
+            _sessionFilter.AddFilter(filter);
         }
     }
 }

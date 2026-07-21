@@ -209,15 +209,11 @@
                         <TextBlock VerticalAlignment="Center"
                                    Style="{StaticResource BodyText}"
                                    Text="© File-New-Project" />
-                        <CheckBox Margin="12,24,12,-6"
-                                  HorizontalAlignment="Left"
-                                  Content="{x:Static resx:Resources.PrivacyCheckboxText}"
-                                  IsChecked="{Binding IsTelemetryEnabled, Mode=TwoWay}" />
-                        <TextBlock Style="{StaticResource HyperlinkBlock}">
-                            <Hyperlink Command="{Binding OpenPrivacyPolicyCommand}">
-                                <Run Text="{x:Static resx:Resources.PrivacyPolicyText}" />
-                            </Hyperlink>
-                        </TextBlock>
+                        <TextBlock Margin="0,12,12,0"
+                                   VerticalAlignment="Center"
+                                   Style="{StaticResource BodyText}"
+                                   Text="DeviceTrumpet is Qwezy's personal fork of EarTrumpet, customized for their own use."
+                                   TextWrapping="Wrap" />
                         <TextBlock Style="{StaticResource HyperlinkBlock}"><Hyperlink Command="{Binding OpenAboutCommand}">
                                 <Run Text="{x:Static resx:Resources.WebsiteText}" />
                             </Hyperlink>

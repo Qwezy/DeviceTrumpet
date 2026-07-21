@@ -2035,12 +2035,6 @@
             </ControlTemplate>
 
             <!--  ViewModel templates  -->
-            <DataTemplate DataType="{x:Type vm:AppItemViewModel}">
-                <views:AppItemView />
-            </DataTemplate>
-            <DataTemplate DataType="{x:Type vm:TemporaryAppItemViewModel}">
-                <views:AppItemView />
-            </DataTemplate>
             <DataTemplate DataType="{x:Type vm:SettingsAppItemViewModel}">
                 <Grid Margin="6">
                     <Grid.ColumnDefinitions>
@@ -2101,31 +2095,6 @@
                                Text="{Binding DisplayName}" />
                 </Grid>
             </DataTemplate>
-            <DataTemplate DataType="{x:Type vm:FocusedAppItemViewModel}">
-                <ContentControl Template="{StaticResource DialogChrome}">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-
-                        <ListView Margin="{StaticResource VolumeAppListMargin}"
-                                  VerticalAlignment="Center"
-                                  FocusVisualStyle="{x:Null}"
-                                  ItemsSource="{Binding App.ChildApps, Mode=OneWay}"
-                                  ScrollViewer.CanContentScroll="True"
-                                  ScrollViewer.VerticalScrollBarVisibility="Auto" />
-
-                        <ItemsControl Grid.Row="1" ItemsSource="{Binding Addons}">
-                            <ItemsControl.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <StackPanel Orientation="Vertical" />
-                                </ItemsPanelTemplate>
-                            </ItemsControl.ItemsPanel>
-                        </ItemsControl>
-                    </Grid>
-                </ContentControl>
-            </DataTemplate>
             <DataTemplate DataType="{x:Type vm:FocusedDeviceViewModel}">
                 <ContentControl Template="{StaticResource DialogChrome}">
                     <ItemsControl ItemsSource="{Binding Addons}">
@@ -2180,16 +2149,7 @@
                                    HorizontalAlignment="Left"
                                    gif:AnimationBehavior.SourceUri="pack://application:,,,/EarTrumpet;component/Assets/Welcome.gif"
                                    gif:AnimationBehavior.RepeatBehavior="Forever" />
-                            <CheckBox Margin="0,20,12,-6"
-                                        HorizontalAlignment="Left"
-                                        Content="{x:Static resx:Resources.PrivacyCheckboxText}"
-                                        IsChecked="{Binding IsTelemetryEnabled, Mode=TwoWay}" />
-                            <TextBlock Margin="0,12,12,6" Style="{StaticResource HyperlinkBlock}">
-                                <Hyperlink Command="{Binding OpenPrivacy}">
-                                    <Run Text="{x:Static resx:Resources.PrivacyPolicyText}" />
-                                </Hyperlink>
-                            </TextBlock>
-                            <TextBlock Margin="0,12,12,0" Style="{StaticResource HyperlinkBlock}">
+                            <TextBlock Margin="0,20,12,0" Style="{StaticResource HyperlinkBlock}">
                                 <Hyperlink Command="{Binding LearnMore}">
                                     <Run Text="{x:Static resx:Resources.WebsiteText}" />
                                 </Hyperlink>

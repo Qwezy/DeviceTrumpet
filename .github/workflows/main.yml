@@ -93,12 +93,6 @@ jobs:
       - name: Restore NuGet Packages
         run: nuget restore EarTrumpet.vs15.sln
 
-      - name: Set Bugsnag API Key
-        shell: powershell
-        run: |
-          $cfg = Get-Content ".\EarTrumpet\app.config"
-          $cfg | ForEach-Object { $_.Replace("{bugsnag.apikey}", "${{ secrets.bugsnag_api_key }}") } | Set-Content ".\EarTrumpet\app.config"
-
       - name: Adjust manifest and store association
         if: matrix.channel == 'Store' || matrix.channel == 'AppInstaller'
         shell: powershell

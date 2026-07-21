@@ -19,7 +19,6 @@ pr:
       - '.github/**/*'
 
 variables:
-- group: 'Bugsnag'
 - name: DOTNET_SKIP_FIRST_TIME_EXPERIENCE
   value: true
 - name: Solution
@@ -83,14 +82,6 @@ jobs:
     displayName: 'Restore NuGet Packages'
     inputs:
       restoreSolution: '$(solution)'
-
-  - task: PowerShell@2
-    displayName: 'Set Bugsnag API Key'
-    inputs:
-      targetType: inline
-      script: |
-        $cfg = Get-Content ".\EarTrumpet\app.config"
-        $cfg | ForEach-Object { $_.Replace("{bugsnag.apikey}", "$(bugsnag.apikey)") } | Set-Content ".\EarTrumpet\app.config"
 
   - task: PowerShell@2
     displayName: 'Adjust manifest and store association'

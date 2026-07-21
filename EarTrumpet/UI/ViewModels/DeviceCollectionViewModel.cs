@@ -142,11 +142,6 @@ namespace EarTrumpet.UI.ViewModels
             }));
         }
 
-        public void MoveAppToDevice(IAppItemViewModel app, DeviceViewModel dev)
-        {
-            throw new NotSupportedException("DeviceTrumpet does not support app-level audio routing.");
-        }
-
         private void StartOrStopPeakTimer()
         {
             _peakMeterTimer.Enabled = _isFlyoutVisible || _isFullWindowVisible;

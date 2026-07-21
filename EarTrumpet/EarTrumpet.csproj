@@ -42,12 +42,6 @@
     <DebugType>pdbonly</DebugType>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Bugsnag, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bugsnag.2.2.0\lib\net45\Bugsnag.dll</HintPath>
-    </Reference>
-    <Reference Include="Bugsnag.ConfigurationSection, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bugsnag.ConfigurationSection.2.2.0\lib\net45\Bugsnag.ConfigurationSection.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -311,14 +305,12 @@
     <Compile Include="UI\Helpers\IAppIconSource.cs" />
     <Compile Include="UI\Controls\MenuItemTemplateSelector.cs" />
     <Compile Include="UI\ViewModels\ContextMenuItem.cs" />
-    <Compile Include="UI\ViewModels\FocusedAppItemViewModel.cs" />
     <Compile Include="UI\ViewModels\FocusedDeviceViewModel.cs" />
     <Compile Include="UI\ViewModels\IAppItemViewModel.cs" />
     <Compile Include="UI\ViewModels\IDeviceViewModel.cs" />
     <Compile Include="UI\ViewModels\IFocusedViewModel.cs" />
     <Compile Include="UI\ViewModels\ModalDialogViewModel.cs" />
     <Compile Include="UI\ViewModels\SettingsDialogViewModel.cs" />
-    <Compile Include="UI\ViewModels\TemporaryAppItemViewModel.cs" />
     <Compile Include="Extensions\IEnumerableExtensions.cs" />
     <Compile Include="UI\Helpers\RelayCommand.cs" />
     <Compile Include="UI\ViewModels\ToolbarItemViewModel.cs" />
@@ -385,7 +377,6 @@
     <Compile Include="Interop\Helpers\WindowsTaskbar.cs" />
     <Compile Include="UI\Themes\Manager.cs" />
     <Compile Include="DataModel\SystemSettings.cs" />
-    <Compile Include="UI\ViewModels\AppItemViewModel.cs" />
     <Compile Include="Extensions\CollectionExtensions.cs" />
     <Compile Include="Extensions\WindowExtensions.cs" />
     <Compile Include="UI\ViewModels\DeviceViewModel.cs" />
@@ -394,9 +385,6 @@
     <Compile Include="UI\ViewModels\DeviceCollectionViewModel.cs" />
     <Compile Include="BindableBase.cs" />
     <Compile Include="UI\ViewModels\AudioSessionViewModel.cs" />
-    <Compile Include="UI\Views\AppItemView.xaml.cs">
-      <DependentUpon>AppItemView.xaml</DependentUpon>
-    </Compile>
     <Page Include="Addons\EarTrumpet.Actions\AddonResources.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -433,10 +421,6 @@
       <DependentUpon>FlyoutWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="UI\Views\AppItemView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

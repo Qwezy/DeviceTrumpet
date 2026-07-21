@@ -10,7 +10,10 @@ namespace EarTrumpet.DataModel
         static readonly string s_PersonalizeKey = @"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize";
 
         public static bool IsTransparencyEnabled => ReadDword(s_PersonalizeKey, "EnableTransparency");
-        public static bool UseAccentColor => ReadDword(s_PersonalizeKey, "ColorPrevalence");
+
+        // DeviceTrumpet: always use the neutral flyout background instead of tinting
+        // it with the Windows accent color, regardless of the "ColorPrevalence" setting.
+        public static bool UseAccentColor => false;
         public static bool IsLightTheme => ReadDword(s_PersonalizeKey, "AppsUseLightTheme", 1);
         public static bool IsSystemLightTheme => LightThemeShim(ReadDword(s_PersonalizeKey, "SystemUsesLightTheme"));
         public static bool UseDynamicScrollbars => ReadDword(@"Control Panel\Accessibility", "DynamicScrollbars", 1);
