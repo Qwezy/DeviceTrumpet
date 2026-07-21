@@ -179,10 +179,9 @@ namespace EarTrumpet.DataModel.WindowsAudio.Internal
             PeakValue1 = newValues[0];
             PeakValue2 = newValues[1];
 
-            foreach(var session in _sessions.Sessions.ToArray())
-            {
-                ((IAudioDeviceSessionInternal)session).UpdatePeakValueBackground();
-            }
+            // DeviceTrumpet: per-app peak meters aren't shown anywhere anymore
+            // (the per-app mixer UI is gone), so don't poll every session's
+            // meter 30x/sec across every device just to throw the result away.
         }
 
         public void UnhideSessionsForProcessId(int processId)
