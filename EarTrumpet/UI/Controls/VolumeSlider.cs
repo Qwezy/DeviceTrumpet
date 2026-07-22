@@ -29,7 +29,6 @@ namespace EarTrumpet.UI.Controls
         private Thumb _thumb;
         private Point _lastMousePosition;
         private bool _isDragging;
-        private int _moveLogCount;
 
         public VolumeSlider() : base()
         {
@@ -102,11 +101,8 @@ namespace EarTrumpet.UI.Controls
                     SetPositionByControlPoint(_lastMousePosition);
                 }
 
-                bool captured = CaptureMouse();
+                CaptureMouse();
                 e.Handled = true;
-
-                _moveLogCount = 0;
-                System.Diagnostics.Debug.WriteLine($"[VolumeSlider] DOWN onThumb={_thumb.IsMouseOver} captureCallReturned={captured} isMouseCaptured={IsMouseCaptured} Mouse.Captured={Mouse.Captured?.GetType().Name ?? "null"}");
             }
         }
 
@@ -120,8 +116,6 @@ namespace EarTrumpet.UI.Controls
 
         private void OnMouseUp(object sender, MouseButtonEventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine($"[VolumeSlider] UP isDragging={_isDragging} isMouseCaptured={IsMouseCaptured} Mouse.Captured={Mouse.Captured?.GetType().Name ?? "null"} ValueAtUp={Value}");
-
             if (_isDragging || IsMouseCaptured)
             {
                 // If the point is outside of the control, clear the hover state.
@@ -137,13 +131,6 @@ namespace EarTrumpet.UI.Controls
                     ReleaseMouseCapture();
                 }
                 e.Handled = true;
-
-                // Catch a post-release revert: if something (e.g. the base Slider's move-to-point
-                // machinery) overwrites Value after we let go, ValueNow will differ from ValueAtUp.
-                double valueAtUp = Value;
-                Dispatcher.BeginInvoke(
-                    System.Windows.Threading.DispatcherPriority.Background,
-                    new Action(() => System.Diagnostics.Debug.WriteLine($"[VolumeSlider] POST-UP ValueAtUp={valueAtUp} ValueNow={Value}")));
             }
         }
 
@@ -158,12 +145,6 @@ namespace EarTrumpet.UI.Controls
 
         private void OnMouseMove(object sender, MouseEventArgs e)
         {
-            if (_moveLogCount < 8)
-            {
-                _moveLogCount++;
-                System.Diagnostics.Debug.WriteLine($"[VolumeSlider] MOVE isDragging={_isDragging} leftButton={e.LeftButton} isMouseCaptured={IsMouseCaptured} Mouse.Captured={Mouse.Captured?.GetType().Name ?? "null"} pos={e.GetPosition(this)}");
-            }
-
             // Gated on our own _isDragging flag and the physical button state rather than
             // IsMouseCaptured: WPF's routed events still bubble MouseMove up through this
             // element (as an ancestor) even when some descendant control ends up holding
@@ -199,21 +180,7 @@ namespace EarTrumpet.UI.Controls
             var thumbWidth = _thumb?.ActualWidth ?? 0;
             var usableWidth = ActualWidth - thumbWidth;
             var percent = usableWidth > 0 ? (point.X - thumbWidth / 2) / usableWidth : 0;
-            var newValue = Bound((Maximum - Minimum) * percent);
-
-            if (_moveLogCount <= 8)
-            {
-                System.Diagnostics.Debug.WriteLine($"[VolumeSlider] SETPOS point.X={point.X} ActualWidth={ActualWidth} thumbWidth={thumbWidth} usableWidth={usableWidth} percent={percent} oldValue={Value} newValue={newValue}");
-            }
-
-            Value = newValue;
-
-            if (_moveLogCount <= 8)
-            {
-                double thumbX = -1;
-                try { thumbX = _thumb.TransformToAncestor(this).Transform(new Point(0, 0)).X; } catch { }
-                System.Diagnostics.Debug.WriteLine($"[VolumeSlider] SETPOS afterSet Value={Value} thumbVisualX={thumbX} thumbActualWidth={_thumb?.ActualWidth}");
-            }
+            Value = Bound((Maximum - Minimum) * percent);
         }
 
         public void ChangePositionByAmount(double amount)
