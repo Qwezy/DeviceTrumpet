@@ -1375,7 +1375,43 @@ namespace EarTrumpet.Properties {
                 return ResourceManager.GetString("SettingsCategoryTitle", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to Configure mouse, icon, and volume options.
+        /// </summary>
+        public static string GeneralSettingsDescriptionText {
+            get {
+                return ResourceManager.GetString("GeneralSettingsDescriptionText", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Keybinds.
+        /// </summary>
+        public static string KeybindsTitle {
+            get {
+                return ResourceManager.GetString("KeybindsTitle", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Configure keyboard shortcuts.
+        /// </summary>
+        public static string KeybindsDescriptionText {
+            get {
+                return ResourceManager.GetString("KeybindsDescriptionText", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Version, links, and diagnostics.
+        /// </summary>
+        public static string AboutCategoryDescriptionText {
+            get {
+                return ResourceManager.GetString("AboutCategoryDescriptionText", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to Configure shortcuts and get help.
         /// </summary>

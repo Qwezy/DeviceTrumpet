@@ -161,8 +161,7 @@
     <Compile Include="UI\Themes\ThemeBindingInfo.cs" />
     <Compile Include="UI\Helpers\TaskbarIconSource.cs" />
     <Compile Include="UI\ViewModels\BackstackViewModel.cs" />
-    <Compile Include="UI\ViewModels\EarTrumpetCommunitySettingsPageViewModel.cs" />
-    <Compile Include="UI\ViewModels\EarTrumpetMouseSettingsPageViewModel.cs" />
+    <Compile Include="UI\ViewModels\EarTrumpetGeneralSettingsPageViewModel.cs" />
     <Compile Include="UI\ViewModels\EarTrumpetShortcutsPageViewModel.cs" />
     <Compile Include="Extensibility\IEarTrumpetAddonAppContent.cs" />
     <Compile Include="Extensibility\IEarTrumpetAddonDeviceContent.cs" />
@@ -222,7 +221,6 @@
     <Compile Include="UI\ViewModels\AddonAboutPageViewModel.cs" />
     <Compile Include="UI\ViewModels\AdvertisedCategorySettingsViewModel.cs" />
     <Compile Include="UI\ViewModels\EarTrumpetAboutPageViewModel.cs" />
-    <Compile Include="UI\ViewModels\EarTrumpetLegacySettingsPageViewModel.cs" />
     <Compile Include="UI\ViewModels\HotkeyViewModel.cs" />
     <Compile Include="UI\ViewModels\IFlyoutViewModel.cs" />
     <Compile Include="UI\ViewModels\IPopupHostViewModel.cs" />

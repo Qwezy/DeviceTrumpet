@@ -233,22 +233,28 @@ namespace EarTrumpet
 
         private Window CreateSettingsExperience()
         {
-            var defaultCategory = new SettingsCategoryViewModel(
+            var generalCategory = new SettingsCategoryViewModel(
                 EarTrumpet.Properties.Resources.SettingsCategoryTitle,
                 "\xE71D",
-                EarTrumpet.Properties.Resources.SettingsDescriptionText,
+                EarTrumpet.Properties.Resources.GeneralSettingsDescriptionText,
                 null,
-                new SettingsPageViewModel[]
-                    {
-                        new EarTrumpetShortcutsPageViewModel(Settings),
-                        new EarTrumpetMouseSettingsPageViewModel(Settings),
-                        new EarTrumpetCommunitySettingsPageViewModel(Settings),
-                        new EarTrumpetLegacySettingsPageViewModel(Settings),
-                        new EarTrumpetAboutPageViewModel(() => _errorReporter.DisplayDiagnosticData(), Settings)
-                    });
+                new SettingsPageViewModel[] { new EarTrumpetGeneralSettingsPageViewModel(Settings) });
 
-            var allCategories = new List<SettingsCategoryViewModel>();
-            allCategories.Add(defaultCategory);
+            var keybindsCategory = new SettingsCategoryViewModel(
+                EarTrumpet.Properties.Resources.KeybindsTitle,
+                "\xE765",
+                EarTrumpet.Properties.Resources.KeybindsDescriptionText,
+                null,
+                new SettingsPageViewModel[] { new EarTrumpetShortcutsPageViewModel(Settings) });
+
+            var aboutCategory = new SettingsCategoryViewModel(
+                EarTrumpet.Properties.Resources.AboutTitle,
+                "\xE946",
+                EarTrumpet.Properties.Resources.AboutCategoryDescriptionText,
+                null,
+                new SettingsPageViewModel[] { new EarTrumpetAboutPageViewModel(() => _errorReporter.DisplayDiagnosticData(), Settings) });
+
+            var allCategories = new List<SettingsCategoryViewModel> { generalCategory, keybindsCategory, aboutCategory };
 
             if (AddonManager.Host.SettingsItems != null)
             {

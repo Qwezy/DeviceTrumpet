@@ -135,7 +135,7 @@
                 </Grid>
             </StackPanel>
         </DataTemplate>
-        <DataTemplate DataType="{x:Type vm:EarTrumpetMouseSettingsPageViewModel}">
+        <DataTemplate DataType="{x:Type vm:EarTrumpetGeneralSettingsPageViewModel}">
             <StackPanel Orientation="Vertical">
                 <CheckBox HorizontalAlignment="Left"
                           Content="{x:Static resx:Resources.SettingsUseScrollWheelInTray}"
@@ -143,17 +143,9 @@
                 <CheckBox HorizontalAlignment="Left"
                           Content="{x:Static resx:Resources.SettingsUseGlobalMouseWheelHook}"
                           IsChecked="{Binding UseGlobalMouseWheelHook, Mode=TwoWay}" />
-            </StackPanel>
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type vm:EarTrumpetCommunitySettingsPageViewModel}">
-            <StackPanel Orientation="Vertical">
                 <CheckBox HorizontalAlignment="Left"
                           Content="{x:Static resx:Resources.SettingsUseLogarithmicVolume}"
                           IsChecked="{Binding UseLogarithmicVolume, Mode=TwoWay}" />
-            </StackPanel>
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type vm:EarTrumpetLegacySettingsPageViewModel}">
-            <StackPanel Orientation="Vertical">
                 <CheckBox HorizontalAlignment="Left"
                           Content="{x:Static resx:Resources.SettingsUseLegacyEarTrumpetIcon}"
                           IsChecked="{Binding UseLegacyIcon, Mode=TwoWay}" />
@@ -684,10 +676,21 @@
                         </Style>
                     </Grid.Style>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="320" />
+                        <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <Grid>
+                    <!--  Only categories with more than one page need a page picker; the rest navigate straight to their single page's content.  -->
+                    <Grid Width="320">
+                        <Grid.Style>
+                            <Style TargetType="Grid">
+                                <Setter Property="Visibility" Value="Visible" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Selected.Pages.Count}" Value="1">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Grid.Style>
                         <Grid.Resources>
                             <CollectionViewSource x:Key="cvs"
                                                   IsLiveGroupingRequested="True"
@@ -885,7 +888,34 @@
                                 <RowDefinition Height="Auto" />
                                 <RowDefinition Height="*" />
                             </Grid.RowDefinitions>
-                            <ContentControl Content="{Binding Selected.Selected.Header}" IsTabStop="False" />
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <!--  Stands in for the page-picker sidebar's own Home button when that sidebar is hidden (single-page categories).  -->
+                                <Button HorizontalAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        AutomationProperties.Name="{x:Static resx:Resources.HomeButtonText}"
+                                        Command="{Binding GoHome}"
+                                        ToolTipService.ToolTip="{x:Static resx:Resources.HomeButtonText}">
+                                    <Button.Style>
+                                        <Style BasedOn="{StaticResource InvisibleButtonStyle}" TargetType="Button">
+                                            <Setter Property="Visibility" Value="Collapsed" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Selected.Pages.Count}" Value="1">
+                                                    <Setter Property="Visibility" Value="Visible" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+                                    <TextBlock Margin="16,0"
+                                               FontSize="16"
+                                               Style="{StaticResource GlyphTextBlockStyle}"
+                                               Text="&#xE10F;" />
+                                </Button>
+                                <ContentControl Grid.Column="1" Content="{Binding Selected.Selected.Header}" IsTabStop="False" />
+                            </Grid>
                             <ScrollViewer Grid.Row="1"
                                           b:ScrollViewerEx.ScrollToTopOnChanged="{Binding Selected.Selected}"
                                           HorizontalScrollBarVisibility="Disabled"

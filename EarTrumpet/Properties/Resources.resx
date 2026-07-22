@@ -192,6 +192,18 @@
   <data name="SettingsCategoryTitle" xml:space="preserve">
     <value>General</value>
   </data>
+  <data name="GeneralSettingsDescriptionText" xml:space="preserve">
+    <value>Configure mouse, icon, and volume options</value>
+  </data>
+  <data name="KeybindsTitle" xml:space="preserve">
+    <value>Keybinds</value>
+  </data>
+  <data name="KeybindsDescriptionText" xml:space="preserve">
+    <value>Configure keyboard shortcuts</value>
+  </data>
+  <data name="AboutCategoryDescriptionText" xml:space="preserve">
+    <value>Version, links, and diagnostics</value>
+  </data>
   <data name="MoveButtonAccessibleText" xml:space="preserve">
     <value>Assign this app to a playback device</value>
   </data>

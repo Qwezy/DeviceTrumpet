@@ -20,7 +20,7 @@ namespace EarTrumpet.UI.ViewModels
 
         public EarTrumpetShortcutsPageViewModel(AppSettings settings) : base(null)
         {
-            Title = Properties.Resources.ShortcutsPageText;
+            Title = Properties.Resources.KeybindsTitle;
             Glyph = "\xE765";
 
             OpenFlyoutHotkey = new HotkeyViewModel(settings.FlyoutHotkey, (newHotkey) => settings.FlyoutHotkey = newHotkey);
