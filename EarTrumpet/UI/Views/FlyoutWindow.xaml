@@ -42,7 +42,10 @@
             <Setter Property="FontFamily" Value="Segoe MDL2 Assets" />
             <Setter Property="FontSize" Value="14" />
             <Setter Property="BorderThickness" Value="0" />
-            <Setter Property="Background" Value="Transparent" />
+            <!-- A fully-transparent (alpha 0) brush is unreliable for hit-testing in this
+                 app's forced software rendering mode; alpha 1 is visually identical but
+                 makes the whole button hit-testable, not just the glyph. -->
+            <Setter Property="Background" Value="#01FFFFFF" />
             <Setter Property="Theme:Brush.Foreground" Value="Text" />
             <Setter Property="FocusVisualStyle" Value="{StaticResource Windows10FocusVisualStyle}" />
             <Setter Property="Template">
@@ -86,10 +89,10 @@
                         <Button x:Name="DefaultDeviceButton"
                                 AutomationProperties.Name="{x:Static resx:Resources.SelectDefaultDeviceAccessibleText}"
                                 Click="OnDefaultDeviceButtonClick"
-                                Content="&#xE995;"
                                 IsTabStop="True"
                                 Style="{StaticResource FlyoutHeaderButtonStyle}"
                                 ToolTipService.ToolTip="{x:Static resx:Resources.SelectDefaultDeviceAccessibleText}">
+                            <TextBlock IsHitTestVisible="False" Text="&#xE995;" />
                             <Button.ContextMenu>
                                 <ContextMenu FontFamily="{DynamicResource {x:Static SystemFonts.MessageFontFamilyKey}}"
                                              ItemContainerTemplateSelector="{StaticResource MenuSelector}"
@@ -101,10 +104,11 @@
                         <Button x:Name="SettingsButton"
                                 AutomationProperties.Name="{x:Static resx:Resources.SettingsWindowText}"
                                 Command="{Binding OpenSettings}"
-                                Content="&#xE946;"
                                 IsTabStop="True"
                                 Style="{StaticResource FlyoutHeaderButtonStyle}"
-                                ToolTipService.ToolTip="{x:Static resx:Resources.SettingsWindowText}" />
+                                ToolTipService.ToolTip="{x:Static resx:Resources.SettingsWindowText}">
+                            <TextBlock IsHitTestVisible="False" Text="&#xE946;" />
+                        </Button>
                     </StackPanel>
                 </Grid>
 
