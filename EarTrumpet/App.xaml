@@ -463,7 +463,11 @@
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type Slider}">
-                            <Grid>
+                            <!-- Background=Transparent: the RepeatButtons below are IsHitTestVisible=False
+                                 (see comment there), so this Grid is now the only hit-testable surface across
+                                 most of the track's height. Without an explicit Background, WPF elements are
+                                 not hit-test targets at all, and clicks over the track would hit nothing. -->
+                            <Grid Background="Transparent">
                                 <Border Name="TrackBackground" Height="2" />
                                 <Track Name="PART_Track">
                                     <Track.DecreaseRepeatButton>
