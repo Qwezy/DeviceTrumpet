@@ -28,7 +28,7 @@ namespace EarTrumpet.UI.Controls
         private Border _peakMeter2;
         private Thumb _thumb;
         private Point _lastMousePosition;
-        private bool _isTrackDragging;
+        private bool _isDragging;
 
         public VolumeSlider() : base()
         {
@@ -91,15 +91,12 @@ namespace EarTrumpet.UI.Controls
                 _lastMousePosition = e.GetPosition(this);
                 VisualStateManager.GoToState((FrameworkElement)sender, "Pressed", true);
 
-                // A click on the track (not the thumb) is tracked and driven entirely by
-                // this class. A click on the thumb is left to Thumb's own built-in drag
-                // handling, which WPF gives capture priority over us regardless of our own
-                // CaptureMouse() call below, since Thumb's class handlers run with
-                // handledEventsToo. _isTrackDragging (not IsMouseCaptured) is what OnMouseMove
-                // keys off of, so a track drag keeps moving even if WPF hands mouse capture
-                // to some other element mid-gesture.
-                _isTrackDragging = !_thumb.IsMouseOver;
-                if (_isTrackDragging)
+                // Every mouse-driven position update (thumb or track) is driven by this
+                // class via _isDragging, not by Thumb's own built-in drag handling. Only
+                // skip the initial snap-to-click-point when starting exactly on the thumb,
+                // so grabbing it doesn't cause a tiny unwanted jump before the drag starts.
+                _isDragging = true;
+                if (!_thumb.IsMouseOver)
                 {
                     SetPositionByControlPoint(_lastMousePosition);
                 }
@@ -119,7 +116,7 @@ namespace EarTrumpet.UI.Controls
 
         private void OnMouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (_isTrackDragging || IsMouseCaptured)
+            if (_isDragging || IsMouseCaptured)
             {
                 // If the point is outside of the control, clear the hover state.
                 Rect rcSlider = new Rect(0, 0, ActualWidth, ActualHeight);
@@ -128,7 +125,7 @@ namespace EarTrumpet.UI.Controls
                     VisualStateManager.GoToState((FrameworkElement)sender, "Normal", true);
                 }
 
-                _isTrackDragging = false;
+                _isDragging = false;
                 if (IsMouseCaptured)
                 {
                     ReleaseMouseCapture();
@@ -148,12 +145,12 @@ namespace EarTrumpet.UI.Controls
 
         private void OnMouseMove(object sender, MouseEventArgs e)
         {
-            // Gated on our own _isTrackDragging flag and the physical button state rather
-            // than IsMouseCaptured: WPF's routed events still bubble MouseMove up through
-            // this element (as an ancestor) even when some descendant control ends up
-            // holding the actual mouse capture, so this doesn't need to own capture to keep
-            // receiving move events -- it just needs to know a track drag is in progress.
-            if (!_isTrackDragging || e.LeftButton != MouseButtonState.Pressed)
+            // Gated on our own _isDragging flag and the physical button state rather than
+            // IsMouseCaptured: WPF's routed events still bubble MouseMove up through this
+            // element (as an ancestor) even when some descendant control ends up holding
+            // the actual mouse capture, so this doesn't need to own capture to keep
+            // receiving move events -- it just needs to know a drag is in progress.
+            if (!_isDragging || e.LeftButton != MouseButtonState.Pressed)
             {
                 return;
             }
