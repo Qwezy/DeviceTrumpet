@@ -418,7 +418,7 @@
                                 <Track Name="PART_Track">
                                     <Track.DecreaseRepeatButton>
                                         <RepeatButton Name="SliderLeft"
-                                                      Theme:Brush.Foreground="SystemAccent"
+                                                      Theme:Brush.Foreground="SystemAccent/0.8"
                                                       Command="Slider.DecreaseLarge"
                                                       Style="{StaticResource SliderButtonStyle}" />
                                     </Track.DecreaseRepeatButton>
@@ -426,7 +426,7 @@
                                         <Thumb Name="SliderThumb">
                                             <Thumb.Style>
                                                 <Style BasedOn="{StaticResource SliderThumbStyle}" TargetType="{x:Type Thumb}">
-                                                    <Setter Property="Theme:Brush.Foreground" Value=":Theme=Control{Theme}SliderTrackFillRest, Flyout:Theme=SystemAccent, :HighContrast=ControlText, Flyout:HighContrast=ControlText" />
+                                                    <Setter Property="Theme:Brush.Foreground" Value=":Theme=Control{Theme}SliderTrackFillRest, Flyout:Theme=SystemAccent/0.8, :HighContrast=ControlText, Flyout:HighContrast=ControlText" />
                                                     <Style.Triggers>
                                                         <DataTrigger Binding="{Binding Path=IsMouseOver, RelativeSource={RelativeSource TemplatedParent}}" Value="True">
                                                             <Setter Property="Theme:Brush.Foreground" Value="Theme=Control{Theme}SliderThumbHover, HighContrast=Highlight" />

@@ -77,53 +77,10 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <!--  A real (if visually negligible) background is required across the whole strip: this window
-                      is AllowsTransparency="True", so any pixel where nothing paints at all (alpha 0) is a
-                      genuine OS-level click-through, not just a WPF-internal hit-test miss.  -->
-                <Grid Grid.Row="0" Height="52" Background="#01000000">
-                    <StackPanel Margin="0,0,8,0"
-                                HorizontalAlignment="Right"
-                                VerticalAlignment="Center"
-                                Orientation="Horizontal">
-                        <Button x:Name="DefaultDeviceButton"
-                                Margin="0,0,4,0"
-                                AutomationProperties.Name="{x:Static resx:Resources.SelectDefaultDeviceAccessibleText}"
-                                Click="OnDefaultDeviceButtonClick"
-                                IsTabStop="True"
-                                Style="{StaticResource FlyoutHeaderButtonStyle}"
-                                ToolTipService.ToolTip="{x:Static resx:Resources.SelectDefaultDeviceAccessibleText}">
-                            <StackPanel IsHitTestVisible="False" Orientation="Horizontal">
-                                <TextBlock Text="&#xE7F5;" />
-                                <TextBlock Margin="6,0,0,0"
-                                           VerticalAlignment="Center"
-                                           FontFamily="{DynamicResource {x:Static SystemFonts.MessageFontFamilyKey}}"
-                                           FontSize="12"
-                                           Text="{x:Static resx:Resources.DefaultDeviceLabelText}" />
-                            </StackPanel>
-                            <Button.ContextMenu>
-                                <ContextMenu MinWidth="180"
-                                             FontFamily="{DynamicResource {x:Static SystemFonts.MessageFontFamilyKey}}"
-                                             ItemContainerTemplateSelector="{StaticResource MenuSelector}"
-                                             ItemsSource="{Binding DefaultDeviceMenu}"
-                                             Theme:Options.Source="System"
-                                             UsesItemContainerTemplate="True" />
-                            </Button.ContextMenu>
-                        </Button>
-                        <Button x:Name="SettingsButton"
-                                Width="36"
-                                AutomationProperties.Name="{x:Static resx:Resources.SettingsWindowText}"
-                                Command="{Binding OpenSettings}"
-                                IsTabStop="True"
-                                Style="{StaticResource FlyoutHeaderButtonStyle}"
-                                ToolTipService.ToolTip="{x:Static resx:Resources.SettingsWindowText}">
-                            <TextBlock IsHitTestVisible="False" Text="&#xE713;" />
-                        </Button>
-                    </StackPanel>
-                </Grid>
-
-                <Border Grid.Row="1" VerticalAlignment="Center" Theme:Brush.Background="FlyoutBackground">
+                <Border Grid.Row="0" VerticalAlignment="Center" Theme:Brush.Background="FlyoutBackground">
                     <Border.Style>
                         <Style TargetType="Border">
                             <Setter Property="Visibility" Value="Collapsed" />
@@ -155,6 +112,50 @@
                                   FocusVisualStyle="{x:Null}"
                                   IsTabStop="False"
                                   ItemsSource="{Binding Devices}" />
+                </Grid>
+
+                <!--  A real (if visually negligible) background is required across the whole strip: this window
+                      is AllowsTransparency="True", so any pixel where nothing paints at all (alpha 0) is a
+                      genuine OS-level click-through, not just a WPF-internal hit-test miss.  -->
+                <Grid Grid.Row="2" Height="52" Background="#01000000">
+                    <Button x:Name="DefaultDeviceButton"
+                            Margin="8,0,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            AutomationProperties.Name="{x:Static resx:Resources.SelectDefaultDeviceAccessibleText}"
+                            Click="OnDefaultDeviceButtonClick"
+                            IsTabStop="True"
+                            Style="{StaticResource FlyoutHeaderButtonStyle}"
+                            ToolTipService.ToolTip="{x:Static resx:Resources.SelectDefaultDeviceAccessibleText}">
+                        <StackPanel IsHitTestVisible="False" Orientation="Horizontal">
+                            <TextBlock Text="&#xE7F5;" />
+                            <TextBlock Margin="6,0,0,0"
+                                       VerticalAlignment="Center"
+                                       FontFamily="{DynamicResource {x:Static SystemFonts.MessageFontFamilyKey}}"
+                                       FontSize="12"
+                                       Text="{x:Static resx:Resources.DefaultDeviceLabelText}" />
+                        </StackPanel>
+                        <Button.ContextMenu>
+                            <ContextMenu MinWidth="180"
+                                         FontFamily="{DynamicResource {x:Static SystemFonts.MessageFontFamilyKey}}"
+                                         ItemContainerTemplateSelector="{StaticResource MenuSelector}"
+                                         ItemsSource="{Binding DefaultDeviceMenu}"
+                                         Theme:Options.Source="System"
+                                         UsesItemContainerTemplate="True" />
+                        </Button.ContextMenu>
+                    </Button>
+                    <Button x:Name="SettingsButton"
+                            Width="36"
+                            Margin="0,0,8,0"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            AutomationProperties.Name="{x:Static resx:Resources.SettingsWindowText}"
+                            Command="{Binding OpenSettings}"
+                            IsTabStop="True"
+                            Style="{StaticResource FlyoutHeaderButtonStyle}"
+                            ToolTipService.ToolTip="{x:Static resx:Resources.SettingsWindowText}">
+                        <TextBlock IsHitTestVisible="False" Text="&#xE713;" />
+                    </Button>
                 </Grid>
             </Grid>
         </ScrollViewer>

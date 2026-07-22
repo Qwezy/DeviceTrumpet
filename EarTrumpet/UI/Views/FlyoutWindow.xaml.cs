@@ -96,7 +96,8 @@ namespace EarTrumpet.UI.Views
         {
             var button = (Button)sender;
             button.ContextMenu.PlacementTarget = button;
-            button.ContextMenu.Placement = PlacementMode.Bottom;
+            // The button now lives in the bottom bar, so the menu must open upward to stay on screen.
+            button.ContextMenu.Placement = PlacementMode.Top;
             button.ContextMenu.IsOpen = true;
         }
 

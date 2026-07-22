@@ -4,8 +4,8 @@
                     xmlns:win="clr-namespace:System.Windows;assembly=PresentationFramework">
 
     <bcl:Double x:Key="Mutable_AppIconSize">24</bcl:Double>
-    <bcl:Double x:Key="Mutable_SliderThumbHeight">16</bcl:Double>
-    <bcl:Double x:Key="Mutable_SliderThumbWidth">16</bcl:Double>
+    <bcl:Double x:Key="Mutable_SliderThumbHeight">18</bcl:Double>
+    <bcl:Double x:Key="Mutable_SliderThumbWidth">18</bcl:Double>
     <win:GridLength x:Key="Mutable_IconCellWidth">65</win:GridLength>
     <win:GridLength x:Key="Mutable_VolumeCellWidth">63</win:GridLength>
     <bcl:Double x:Key="Mutable_DeviceTitleCellHeight">44</bcl:Double>
