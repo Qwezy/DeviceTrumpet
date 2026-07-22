@@ -410,11 +410,11 @@
                                             <Storyboard>
                                                 <DoubleAnimation Storyboard.TargetName="InnerCircle"
                                                                   Storyboard.TargetProperty="Width"
-                                                                  To="10"
+                                                                  To="8"
                                                                   Duration="0:0:0.1" />
                                                 <DoubleAnimation Storyboard.TargetName="InnerCircle"
                                                                   Storyboard.TargetProperty="Height"
-                                                                  To="10"
+                                                                  To="8"
                                                                   Duration="0:0:0.1" />
                                             </Storyboard>
                                         </BeginStoryboard>
