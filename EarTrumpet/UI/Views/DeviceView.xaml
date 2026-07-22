@@ -51,8 +51,8 @@
                         </Grid.ColumnDefinitions>
 
                         <Button Name="MuteButton"
-                                Width="{DynamicResource Mutable_AppIconSize}"
-                                Height="{DynamicResource Mutable_AppIconSize}"
+                                Width="30"
+                                Height="30"
                                 Margin="{StaticResource DeviceOrAppIconMargin}"
                                 HorizontalAlignment="Center"
                                 Background="Transparent"

@@ -150,6 +150,9 @@
   <data name="SelectDefaultDeviceAccessibleText" xml:space="preserve">
     <value>Select default device</value>
   </data>
+  <data name="DefaultDeviceLabelText" xml:space="preserve">
+    <value>Default device</value>
+  </data>
   <data name="SoundsControlPanelText" xml:space="preserve">
     <value>Sounds</value>
   </data>

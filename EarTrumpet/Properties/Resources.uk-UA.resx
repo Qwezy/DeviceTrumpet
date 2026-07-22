@@ -204,6 +204,9 @@
   <data name="SelectDefaultDeviceAccessibleText" xml:space="preserve">
     <value>Вибрати пристрій за замовчуванням</value>
   </data>
+  <data name="DefaultDeviceLabelText" xml:space="preserve">
+    <value>Пристрій за замовчуванням</value>
+  </data>
   <data name="MoveButtonAccessibleText" xml:space="preserve">
     <value>Застосувати цей додаток до пристрою для відтворення</value>
   </data>

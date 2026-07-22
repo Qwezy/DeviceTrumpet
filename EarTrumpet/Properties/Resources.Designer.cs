@@ -1512,6 +1512,15 @@ namespace EarTrumpet.Properties {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to Default device.
+        /// </summary>
+        public static string DefaultDeviceLabelText {
+            get {
+                return ResourceManager.GetString("DefaultDeviceLabelText", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to Set a local variable.
         /// </summary>
         public static string SetVariableAction_AddText {
