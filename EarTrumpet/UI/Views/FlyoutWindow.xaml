@@ -96,7 +96,8 @@
                                 ToolTipService.ToolTip="{x:Static resx:Resources.SelectDefaultDeviceAccessibleText}">
                             <TextBlock IsHitTestVisible="False" Text="&#xE995;" />
                             <Button.ContextMenu>
-                                <ContextMenu FontFamily="{DynamicResource {x:Static SystemFonts.MessageFontFamilyKey}}"
+                                <ContextMenu MinWidth="180"
+                                             FontFamily="{DynamicResource {x:Static SystemFonts.MessageFontFamilyKey}}"
                                              ItemContainerTemplateSelector="{StaticResource MenuSelector}"
                                              ItemsSource="{Binding DefaultDeviceMenu}"
                                              Theme:Options.Source="System"

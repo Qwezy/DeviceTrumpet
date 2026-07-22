@@ -872,7 +872,9 @@
                             </ListView.GroupStyle>
                         </ListView>
                     </Grid>
-                    <Border Grid.Column="1" Theme:Brush.BorderBrush="Theme=Transparent, HighContrast=Text">
+                    <Border Grid.Column="1"
+                            Theme:Brush.Background="Background"
+                            Theme:Brush.BorderBrush="Theme=Transparent, HighContrast=Text">
                         <Border.Style>
                             <Style TargetType="Border">
                                 <Style.Triggers>
