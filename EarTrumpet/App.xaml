@@ -455,15 +455,17 @@
                 <Setter Property="IsManipulationEnabled" Value="True" />
                 <!-- Without this, clicking the track jumps the thumb by LargeChange first and only
                      then starts tracking the mouse, so a click near (but not exactly on) the thumb
-                     visibly teleports it before the drag begins. With it, Track moves the thumb
-                     straight to the clicked point and the drag continues smoothly from there. -->
+                     visibly teleports it before the drag begins. With it, Slider moves the thumb
+                     straight to the clicked point and the drag continues smoothly from there. This
+                     is a Slider property, not a Track one: Track has no such property, Slider's
+                     own code handles it internally regardless of the template. -->
                 <Setter Property="IsMoveToPointEnabled" Value="True" />
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type Slider}">
                             <Grid>
                                 <Border Name="TrackBackground" Height="2" />
-                                <Track Name="PART_Track" IsMoveToPointEnabled="{TemplateBinding IsMoveToPointEnabled}">
+                                <Track Name="PART_Track">
                                     <Track.DecreaseRepeatButton>
                                         <RepeatButton Name="SliderLeft"
                                                       Theme:Brush.Foreground="SystemAccentLight2"
