@@ -472,7 +472,7 @@
                                             <Thumb.Style>
                                                 <Style BasedOn="{StaticResource SliderThumbStyle}" TargetType="{x:Type Thumb}">
                                                     <Setter Property="Theme:Brush.Foreground" Value=":Theme=Control{Theme}SliderTrackFillRest, Flyout:Theme=SystemAccentLight2, :HighContrast=ControlText, Flyout:HighContrast=ControlText" />
-                                                    <Setter Property="Theme:Brush.BorderBrush" Value="Theme={Theme}BaseMediumHigh, HighContrast=ControlText" />
+                                                    <Setter Property="Theme:Brush.BorderBrush" Value="#454545" />
                                                 </Style>
                                             </Thumb.Style>
                                         </Thumb>
