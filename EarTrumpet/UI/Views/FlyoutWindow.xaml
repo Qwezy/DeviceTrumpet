@@ -42,10 +42,7 @@
             <Setter Property="FontFamily" Value="Segoe MDL2 Assets" />
             <Setter Property="FontSize" Value="14" />
             <Setter Property="BorderThickness" Value="0" />
-            <!-- A fully-transparent (alpha 0) brush is unreliable for hit-testing in this
-                 app's forced software rendering mode; alpha 1 is visually identical but
-                 makes the whole button hit-testable, not just the glyph. -->
-            <Setter Property="Background" Value="#01FFFFFF" />
+            <Setter Property="Background" Value="Transparent" />
             <Setter Property="Theme:Brush.Foreground" Value="Text" />
             <Setter Property="FocusVisualStyle" Value="{StaticResource Windows10FocusVisualStyle}" />
             <Setter Property="Template">
@@ -82,7 +79,12 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <Grid Grid.Row="0" Height="{DynamicResource Mutable_DeviceTitleCellHeight}">
+                <!--  A real (if visually negligible) background is required across the whole strip: this window
+                      is AllowsTransparency="True", so any pixel where nothing paints at all (alpha 0) is a
+                      genuine OS-level click-through, not just a WPF-internal hit-test miss.  -->
+                <Grid Grid.Row="0"
+                      Height="{DynamicResource Mutable_DeviceTitleCellHeight}"
+                      Background="#01000000">
                     <StackPanel Margin="0,0,6,0"
                                 HorizontalAlignment="Right"
                                 Orientation="Horizontal">

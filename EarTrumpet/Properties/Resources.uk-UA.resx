@@ -145,7 +145,7 @@
     <value>Пристрої для запису</value>
   </data>
   <data name="SettingsWindowText" xml:space="preserve">
-    <value>Налаштування/ Про нас EarTrumpet</value>
+    <value>Налаштування</value>
   </data>
   <data name="SoundsControlPanelText" xml:space="preserve">
     <value>Звук</value>
@@ -188,6 +188,21 @@
   </data>
   <data name="SettingsCategoryTitle" xml:space="preserve">
     <value>Загальне</value>
+  </data>
+  <data name="GeneralSettingsDescriptionText" xml:space="preserve">
+    <value>Налаштування миші, значка та гучності</value>
+  </data>
+  <data name="KeybindsTitle" xml:space="preserve">
+    <value>Сполучення клавіш</value>
+  </data>
+  <data name="KeybindsDescriptionText" xml:space="preserve">
+    <value>Налаштування сполучень клавіш</value>
+  </data>
+  <data name="AboutCategoryDescriptionText" xml:space="preserve">
+    <value>Версія, посилання та діагностика</value>
+  </data>
+  <data name="SelectDefaultDeviceAccessibleText" xml:space="preserve">
+    <value>Вибрати пристрій за замовчуванням</value>
   </data>
   <data name="MoveButtonAccessibleText" xml:space="preserve">
     <value>Застосувати цей додаток до пристрою для відтворення</value>
