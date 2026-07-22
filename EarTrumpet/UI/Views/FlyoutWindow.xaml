@@ -107,7 +107,7 @@
                                 IsTabStop="True"
                                 Style="{StaticResource FlyoutHeaderButtonStyle}"
                                 ToolTipService.ToolTip="{x:Static resx:Resources.SettingsWindowText}">
-                            <TextBlock IsHitTestVisible="False" Text="&#xE946;" />
+                            <TextBlock IsHitTestVisible="False" Text="&#xE713;" />
                         </Button>
                     </StackPanel>
                 </Grid>
