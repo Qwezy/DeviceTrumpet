@@ -108,7 +108,6 @@
                         </Style>
                     </Grid.Style>
                     <ItemsControl Name="DevicesList"
-                                  Margin="0,0,0,8"
                                   FocusVisualStyle="{x:Null}"
                                   IsTabStop="False"
                                   ItemsSource="{Binding Devices}" />
