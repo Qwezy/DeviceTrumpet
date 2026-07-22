@@ -234,7 +234,7 @@
             </Style>
             <Style x:Key="CaptionButtonStyle" TargetType="Button">
                 <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
-                <Setter Property="FontFamily" Value="Segoe MDL2 Assets" />
+                <Setter Property="FontFamily" Value="Segoe Fluent Icons, Segoe MDL2 Assets" />
                 <Setter Property="FontSize" Value="10" />
                 <Setter Property="FontWeight" Value="ExtraLight" />
                 <Setter Property="FocusVisualStyle" Value="{x:Null}" />
@@ -345,7 +345,9 @@
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type RepeatButton}">
                             <Border Background="Transparent">
-                                <Border Height="2" Background="{TemplateBinding Foreground}" />
+                                <Border Height="4"
+                                        Background="{TemplateBinding Foreground}"
+                                        CornerRadius="2" />
                             </Border>
                         </ControlTemplate>
                     </Setter.Value>
@@ -362,10 +364,20 @@
                                     Background="{TemplateBinding Foreground}"
                                     BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="0"
-                                    CornerRadius="5" />
+                                    CornerRadius="20" />
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Width" Value="20" />
+                        <Setter Property="Height" Value="20" />
+                    </Trigger>
+                    <Trigger Property="IsDragging" Value="True">
+                        <Setter Property="Width" Value="14" />
+                        <Setter Property="Height" Value="14" />
+                    </Trigger>
+                </Style.Triggers>
             </Style>
             <Style x:Key="{x:Type Slider}" TargetType="{x:Type Slider}">
                 <Setter Property="OverridesDefaultStyle" Value="True" />
@@ -439,7 +451,7 @@
             <Style x:Key="GlyphTextBlockStyle" TargetType="{x:Type TextBlock}">
                 <Setter Property="HorizontalAlignment" Value="Center" />
                 <Setter Property="VerticalAlignment" Value="Center" />
-                <Setter Property="FontFamily" Value="Segoe MDL2 Assets" />
+                <Setter Property="FontFamily" Value="Segoe Fluent Icons, Segoe MDL2 Assets" />
                 <Setter Property="Theme:Brush.Foreground" Value="Light=ApplicationTextLightTheme, Dark=ApplicationTextDarkTheme" />
             </Style>
             <Style x:Key="TextBlockStyle" TargetType="{x:Type TextBlock}">
@@ -542,6 +554,7 @@
                                     Background="{TemplateBinding Background}"
                                     BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="4"
                                     SnapsToDevicePixels="True">
                                 <ContentPresenter x:Name="contentPresenter"
                                                   Margin="{TemplateBinding Padding}"
@@ -555,9 +568,11 @@
                             <ControlTemplate.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
                                     <Setter Property="Theme:Brush.Foreground" Value="Theme=ApplicationText{Theme}Theme/0.95, HighContrast=Highlight" />
+                                    <Setter TargetName="border" Property="Theme:Brush.Background" Value="Light=LightBaseMediumLow/0.12, Dark=DarkBaseMediumLow/0.12, HighContrast=Highlight" />
                                 </Trigger>
                                 <Trigger Property="IsPressed" Value="True">
                                     <Setter Property="Theme:Brush.Foreground" Value="Theme=ApplicationText{Theme}Theme/1, HighContrast=Highlight" />
+                                    <Setter TargetName="border" Property="Theme:Brush.Background" Value="Light=LightBaseMediumLow/0.2, Dark=DarkBaseMediumLow/0.2, HighContrast=Highlight" />
                                 </Trigger>
                             </ControlTemplate.Triggers>
                         </ControlTemplate>
@@ -660,7 +675,7 @@
                                             BorderThickness="1">
                                         <TextBlock x:Name="CheckMark"
                                                    Theme:Brush.Foreground="Theme={Theme}BaseMedium, HighContrast=ControlText"
-                                                   FontFamily="Segoe MDL2 Assets"
+                                                   FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
                                                    SnapsToDevicePixels="False"
                                                    Text="{TemplateBinding Tag}"
                                                    Visibility="Hidden" />
@@ -679,7 +694,7 @@
                                             Visibility="Collapsed">
                                         <TextBlock x:Name="GlyphText"
                                                    Theme:Brush.Foreground="Theme={Theme}BaseMedium, HighContrast=ControlText"
-                                                   FontFamily="Segoe MDL2 Assets"
+                                                   FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
                                                    SnapsToDevicePixels="False"
                                                    Text="&#xE0E3;" />
                                     </Border>
@@ -923,7 +938,7 @@
                                         Theme:Brush.BorderBrush="Theme={Theme}BaseMediumHigh, HighContrast=Highlight"
                                         BorderThickness="2">
                                     <TextBlock x:Name="optionMark"
-                                               FontFamily="Segoe MDL2 Assets"
+                                               FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
                                                FontSize="16"
                                                Foreground="White"
                                                Opacity="0"
@@ -1178,6 +1193,7 @@
                                     Theme:Brush.Background="{TemplateBinding Theme:Brush.Background}"
                                     Theme:Brush.BorderBrush="{TemplateBinding Theme:Brush.BorderBrush}"
                                     BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="4"
                                     SnapsToDevicePixels="True">
                                 <Grid>
                                     <TextBlock Name="PromptText"
@@ -1997,10 +2013,10 @@
                                             Command="{Binding Command}">
                                         <Button.Template>
                                             <ControlTemplate TargetType="{x:Type Button}">
-                                                <Border Background="{TemplateBinding Background}">
+                                                <Border Background="{TemplateBinding Background}" CornerRadius="4">
                                                     <TextBlock HorizontalAlignment="Center"
                                                                VerticalAlignment="Center"
-                                                               FontFamily="Segoe MDL2 Assets"
+                                                               FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
                                                                FontSize="{Binding GlyphFontSize}"
                                                                Foreground="{TemplateBinding Foreground}"
                                                                Text="{Binding Glyph}" />

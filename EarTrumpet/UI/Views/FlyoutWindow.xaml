@@ -39,7 +39,7 @@
         <Style x:Key="FlyoutHeaderButtonStyle" TargetType="{x:Type Button}">
             <Setter Property="Width" Value="{DynamicResource Mutable_DeviceTitleCellHeight}" />
             <Setter Property="Height" Value="{DynamicResource Mutable_DeviceTitleCellHeight}" />
-            <Setter Property="FontFamily" Value="Segoe MDL2 Assets" />
+            <Setter Property="FontFamily" Value="Segoe Fluent Icons, Segoe MDL2 Assets" />
             <Setter Property="FontSize" Value="14" />
             <Setter Property="BorderThickness" Value="0" />
             <Setter Property="Background" Value="Transparent" />
@@ -82,8 +82,8 @@
                 <!--  A real (if visually negligible) background is required across the whole strip: this window
                       is AllowsTransparency="True", so any pixel where nothing paints at all (alpha 0) is a
                       genuine OS-level click-through, not just a WPF-internal hit-test miss.  -->
-                <Grid Grid.Row="0" Height="50" Background="#01000000">
-                    <StackPanel Margin="0,0,6,0"
+                <Grid Grid.Row="0" Height="60" Background="#01000000">
+                    <StackPanel Margin="0,0,8,0"
                                 HorizontalAlignment="Right"
                                 VerticalAlignment="Center"
                                 Orientation="Horizontal">

@@ -196,7 +196,7 @@
         </DataTemplate>
         <DataTemplate DataType="{x:Type vm:SettingsPageHeaderViewModel}">
             <Grid Height="64">
-                <TextBlock Margin="24,0,0,6"
+                <TextBlock Margin="12,0,0,6"
                            VerticalAlignment="Bottom"
                            FontSize="26"
                            Text="{Binding Title}" />
@@ -895,6 +895,7 @@
                                 <!--  Stands in for the page-picker sidebar's own Home button when that sidebar is hidden (single-page categories).  -->
                                 <Button Width="44"
                                         Height="44"
+                                        Margin="24,0,0,0"
                                         HorizontalAlignment="Left"
                                         VerticalAlignment="Bottom"
                                         HorizontalContentAlignment="Center"
@@ -922,7 +923,7 @@
                                           b:ScrollViewerEx.ScrollToTopOnChanged="{Binding Selected.Selected}"
                                           HorizontalScrollBarVisibility="Disabled"
                                           VerticalScrollBarVisibility="Auto">
-                                <ContentControl Margin="12,0,0,0"
+                                <ContentControl Margin="24,0,0,0"
                                                 Content="{Binding Selected.Selected}"
                                                 FocusVisualStyle="{x:Null}"
                                                 Focusable="False"
