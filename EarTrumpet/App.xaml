@@ -453,13 +453,14 @@
                 <Setter Property="SmallChange" Value="1" />
                 <Setter Property="LargeChange" Value="10" />
                 <Setter Property="IsManipulationEnabled" Value="True" />
-                <!-- Without this, clicking the track jumps the thumb by LargeChange first and only
-                     then starts tracking the mouse, so a click near (but not exactly on) the thumb
-                     visibly teleports it before the drag begins. With it, Slider moves the thumb
-                     straight to the clicked point and the drag continues smoothly from there. This
-                     is a Slider property, not a Track one: Track has no such property, Slider's
-                     own code handles it internally regardless of the template. -->
-                <Setter Property="IsMoveToPointEnabled" Value="True" />
+                <!-- Must stay False: VolumeSlider reimplements click-to-position and drag entirely
+                     itself (PreviewMouseDown snaps the thumb to the clicked point, then MouseMove
+                     tracks the drag). With IsMoveToPointEnabled=True the base Slider's own
+                     move-to-point machinery ALSO engages on track clicks via class handlers, records
+                     the click point, and re-commits it on mouse-up, discarding the drag so the
+                     volume snaps back to the initial jump position. Leaving it False hands all track
+                     interaction to VolumeSlider alone. -->
+                <Setter Property="IsMoveToPointEnabled" Value="False" />
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type Slider}">

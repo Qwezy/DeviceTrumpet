@@ -120,7 +120,7 @@ namespace EarTrumpet.UI.Controls
 
         private void OnMouseUp(object sender, MouseButtonEventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine($"[VolumeSlider] UP isDragging={_isDragging} isMouseCaptured={IsMouseCaptured} Mouse.Captured={Mouse.Captured?.GetType().Name ?? "null"}");
+            System.Diagnostics.Debug.WriteLine($"[VolumeSlider] UP isDragging={_isDragging} isMouseCaptured={IsMouseCaptured} Mouse.Captured={Mouse.Captured?.GetType().Name ?? "null"} ValueAtUp={Value}");
 
             if (_isDragging || IsMouseCaptured)
             {
@@ -137,6 +137,13 @@ namespace EarTrumpet.UI.Controls
                     ReleaseMouseCapture();
                 }
                 e.Handled = true;
+
+                // Catch a post-release revert: if something (e.g. the base Slider's move-to-point
+                // machinery) overwrites Value after we let go, ValueNow will differ from ValueAtUp.
+                double valueAtUp = Value;
+                Dispatcher.BeginInvoke(
+                    System.Windows.Threading.DispatcherPriority.Background,
+                    new Action(() => System.Diagnostics.Debug.WriteLine($"[VolumeSlider] POST-UP ValueAtUp={valueAtUp} ValueNow={Value}")));
             }
         }
 
