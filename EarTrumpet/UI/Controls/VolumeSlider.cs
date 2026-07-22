@@ -152,7 +152,14 @@ namespace EarTrumpet.UI.Controls
 
         public void SetPositionByControlPoint(Point point)
         {
-            var percent = point.X / ActualWidth;
+            // The thumb's center can only travel from thumbWidth/2 to ActualWidth - thumbWidth/2,
+            // the same range Track uses -- treating the point as a fraction of the full control
+            // width (ignoring the thumb's own width) puts the thumb's center up to thumbWidth/2
+            // away from the actual cursor position, worse near the track's edges. That mismatch is
+            // what made the thumb appear to "jump" relative to the click/drag point.
+            var thumbWidth = _thumb?.ActualWidth ?? 0;
+            var usableWidth = ActualWidth - thumbWidth;
+            var percent = usableWidth > 0 ? (point.X - thumbWidth / 2) / usableWidth : 0;
             Value = Bound((Maximum - Minimum) * percent);
         }
 
