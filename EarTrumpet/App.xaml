@@ -355,46 +355,89 @@
             </Style>
             <Style x:Key="SliderThumbStyle" TargetType="{x:Type Thumb}">
                 <Setter Property="OverridesDefaultStyle" Value="True" />
-                <Setter Property="Height" Value="{DynamicResource Mutable_SliderThumbHeight}" />
-                <Setter Property="Width" Value="{DynamicResource Mutable_SliderThumbWidth}" />
-                <!-- Grow/shrink via RenderTransform (not Width/Height): Track positions the thumb
-                     using its layout size, so animating that directly desyncs the thumb's visual
-                     center from where Track thinks it is. A centered scale transform changes only
-                     the rendered pixels, leaving Track's positioning math (and hit-test bounds)
-                     alone, so the circle grows/shrinks in place instead of drifting. -->
-                <Setter Property="RenderTransformOrigin" Value="0.5,0.5" />
-                <Setter Property="RenderTransform">
-                    <Setter.Value>
-                        <ScaleTransform ScaleX="1" ScaleY="1" />
-                    </Setter.Value>
-                </Setter>
+                <!-- Fixed 18px outer size: the Thumb control's own layout size never changes, only
+                     the inner Ellipse's size does. Track positions the thumb using the control's own
+                     layout size, so keeping that constant and animating only an internal template
+                     element avoids any risk of the thumb drifting off its track position. -->
+                <Setter Property="Height" Value="18" />
+                <Setter Property="Width" Value="18" />
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type Thumb}">
-                            <Border Name="Thumb"
-                                    Background="{TemplateBinding Foreground}"
-                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                    BorderThickness="0"
-                                    CornerRadius="20" />
+                            <Grid>
+                                <Ellipse Width="18"
+                                         Height="18"
+                                         Fill="{TemplateBinding BorderBrush}" />
+                                <Ellipse x:Name="InnerCircle"
+                                         Width="12"
+                                         Height="12"
+                                         Fill="{TemplateBinding Foreground}" />
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Trigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="InnerCircle"
+                                                                  Storyboard.TargetProperty="Width"
+                                                                  To="14"
+                                                                  Duration="0:0:0.1" />
+                                                <DoubleAnimation Storyboard.TargetName="InnerCircle"
+                                                                  Storyboard.TargetProperty="Height"
+                                                                  To="14"
+                                                                  Duration="0:0:0.1" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.EnterActions>
+                                    <Trigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="InnerCircle"
+                                                                  Storyboard.TargetProperty="Width"
+                                                                  To="12"
+                                                                  Duration="0:0:0.1" />
+                                                <DoubleAnimation Storyboard.TargetName="InnerCircle"
+                                                                  Storyboard.TargetProperty="Height"
+                                                                  To="12"
+                                                                  Duration="0:0:0.1" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.ExitActions>
+                                </Trigger>
+                                <Trigger Property="IsDragging" Value="True">
+                                    <Trigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="InnerCircle"
+                                                                  Storyboard.TargetProperty="Width"
+                                                                  To="10"
+                                                                  Duration="0:0:0.1" />
+                                                <DoubleAnimation Storyboard.TargetName="InnerCircle"
+                                                                  Storyboard.TargetProperty="Height"
+                                                                  To="10"
+                                                                  Duration="0:0:0.1" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.EnterActions>
+                                    <Trigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="InnerCircle"
+                                                                  Storyboard.TargetProperty="Width"
+                                                                  To="14"
+                                                                  Duration="0:0:0.1" />
+                                                <DoubleAnimation Storyboard.TargetName="InnerCircle"
+                                                                  Storyboard.TargetProperty="Height"
+                                                                  To="14"
+                                                                  Duration="0:0:0.1" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.ExitActions>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>
-                <Style.Triggers>
-                    <Trigger Property="IsMouseOver" Value="True">
-                        <Setter Property="RenderTransform">
-                            <Setter.Value>
-                                <ScaleTransform ScaleX="1.25" ScaleY="1.25" />
-                            </Setter.Value>
-                        </Setter>
-                    </Trigger>
-                    <Trigger Property="IsDragging" Value="True">
-                        <Setter Property="RenderTransform">
-                            <Setter.Value>
-                                <ScaleTransform ScaleX="0.875" ScaleY="0.875" />
-                            </Setter.Value>
-                        </Setter>
-                    </Trigger>
-                </Style.Triggers>
             </Style>
             <Style x:Key="{x:Type Slider}" TargetType="{x:Type Slider}">
                 <Setter Property="OverridesDefaultStyle" Value="True" />
@@ -418,20 +461,18 @@
                                 <Track Name="PART_Track">
                                     <Track.DecreaseRepeatButton>
                                         <RepeatButton Name="SliderLeft"
-                                                      Theme:Brush.Foreground="SystemAccent/0.8"
+                                                      Theme:Brush.Foreground="SystemAccentLight2"
                                                       Command="Slider.DecreaseLarge"
                                                       Style="{StaticResource SliderButtonStyle}" />
                                     </Track.DecreaseRepeatButton>
                                     <Track.Thumb>
+                                        <!-- Outer ring is a static neutral gray; inner circle is the (also static-color)
+                                             accent fill that only ever changes size, never color, on hover/press. -->
                                         <Thumb Name="SliderThumb">
                                             <Thumb.Style>
                                                 <Style BasedOn="{StaticResource SliderThumbStyle}" TargetType="{x:Type Thumb}">
-                                                    <Setter Property="Theme:Brush.Foreground" Value=":Theme=Control{Theme}SliderTrackFillRest, Flyout:Theme=SystemAccent/0.8, :HighContrast=ControlText, Flyout:HighContrast=ControlText" />
-                                                    <Style.Triggers>
-                                                        <DataTrigger Binding="{Binding Path=IsMouseOver, RelativeSource={RelativeSource TemplatedParent}}" Value="True">
-                                                            <Setter Property="Theme:Brush.Foreground" Value="Theme=Control{Theme}SliderThumbHover, HighContrast=Highlight" />
-                                                        </DataTrigger>
-                                                    </Style.Triggers>
+                                                    <Setter Property="Theme:Brush.Foreground" Value=":Theme=Control{Theme}SliderTrackFillRest, Flyout:Theme=SystemAccentLight2, :HighContrast=ControlText, Flyout:HighContrast=ControlText" />
+                                                    <Setter Property="Theme:Brush.BorderBrush" Value="Theme={Theme}BaseMediumHigh, HighContrast=ControlText" />
                                                 </Style>
                                             </Thumb.Style>
                                         </Thumb>
