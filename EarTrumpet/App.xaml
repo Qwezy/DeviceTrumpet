@@ -457,13 +457,6 @@
                 <Setter Property="FontSize" Value="{DynamicResource Mutable_DeviceVolumeTextFontSize}" />
                 <Setter Property="Theme:Brush.Foreground" Value="Text" />
             </Style>
-            <Style x:Key="AppVolumeTextStyle" TargetType="{x:Type TextBlock}">
-                <Setter Property="Margin" Value="{StaticResource VolumeTextMargin}" />
-                <Setter Property="HorizontalAlignment" Value="Center" />
-                <Setter Property="VerticalAlignment" Value="Center" />
-                <Setter Property="FontSize" Value="{DynamicResource Mutable_AppVolumeTextFontSize}" />
-                <Setter Property="Theme:Brush.Foreground" Value="Text" />
-            </Style>
             <Style x:Key="DeviceTitleTextStyle" TargetType="{x:Type TextBlock}">
                 <Setter Property="VerticalAlignment" Value="Center" />
                 <Setter Property="FontSize" Value="{DynamicResource Mutable_LargeWindowTextFontSize}" />
@@ -2035,66 +2028,6 @@
             </ControlTemplate>
 
             <!--  ViewModel templates  -->
-            <DataTemplate DataType="{x:Type vm:SettingsAppItemViewModel}">
-                <Grid Margin="6">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-
-                    <Border Width="{DynamicResource Mutable_AppIconSize}"
-                            Height="{DynamicResource Mutable_AppIconSize}"
-                            HorizontalAlignment="Center">
-                        <Border.Style>
-                            <Style TargetType="Border">
-                                <Setter Property="Background">
-                                    <Setter.Value>
-                                        <SolidColorBrush Color="{Binding Background, Mode=OneTime}" />
-                                    </Setter.Value>
-                                </Setter>
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding Source, ElementName=AppIcon}" Value="{x:Null}">
-                                        <Setter Property="Theme:Brush.Background" Value="SystemAccent" />
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Border.Style>
-                        <Grid>
-                            <ctl:ImageEx x:Name="AppIcon"
-                                         Width="{DynamicResource Mutable_AppIconSize}"
-                                         Height="{DynamicResource Mutable_AppIconSize}"
-                                         SourceEx="{Binding}"
-                                         Stretch="Fill" />
-                            <Border>
-                                <Border.Style>
-                                    <Style TargetType="{x:Type Border}">
-                                        <Setter Property="Visibility" Value="Collapsed" />
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{Binding Source, ElementName=AppIcon}" Value="{x:Null}">
-                                                <Setter Property="Visibility" Value="Visible" />
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </Border.Style>
-
-                                <TextBlock Margin="0,-1,0,0"
-                                           HorizontalAlignment="Center"
-                                           VerticalAlignment="Center"
-                                           Theme:Brush.Foreground="Text"
-                                           FontSize="16"
-                                           FontWeight="SemiBold"
-                                           Text="{Binding IconText}"
-                                           TextAlignment="Center" />
-                            </Border>
-                        </Grid>
-                    </Border>
-                    <TextBlock Grid.Column="1"
-                               Margin="12,2"
-                               HorizontalAlignment="Left"
-                               VerticalAlignment="Center"
-                               Text="{Binding DisplayName}" />
-                </Grid>
-            </DataTemplate>
             <DataTemplate DataType="{x:Type vm:FocusedDeviceViewModel}">
                 <ContentControl Template="{StaticResource DialogChrome}">
                     <ItemsControl ItemsSource="{Binding Addons}">

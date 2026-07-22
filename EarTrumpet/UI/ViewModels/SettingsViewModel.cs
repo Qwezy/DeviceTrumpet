@@ -68,7 +68,20 @@ namespace EarTrumpet.UI.ViewModels
         {
             Title = title;
             Categories = new ObservableCollection<SettingsCategoryViewModel>(categories);
-            GoHome = new RelayCommand(() => Selected = null);
+            GoHome = new RelayCommand(() =>
+            {
+                // With a single category there's nothing to go "home" to, so
+                // skip straight past the pointless one-tile picker screen.
+                if (Categories.Count > 1)
+                {
+                    Selected = null;
+                }
+            });
+
+            if (Categories.Count == 1)
+            {
+                Selected = Categories[0];
+            }
         }
 
         public void InvokeSearchResult(SettingsCategoryViewModel cat, SettingsPageViewModel page)

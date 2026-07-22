@@ -17,13 +17,9 @@ namespace EarTrumpet.UI.ViewModels
         public event EventHandler<object> StateChanged;
 
         public ModalDialogViewModel Dialog { get; }
-        public bool IsExpanded { get; private set; }
-        public bool IsExpandingOrCollapsing { get; private set; }
-        public bool CanExpand => _mainViewModel.AllDevices.Count > 1;
         public string DeviceNameText => Devices.Count > 0 ? Devices[0].DisplayName : null;
         public FlyoutViewState State { get; private set; }
         public ObservableCollection<DeviceViewModel> Devices { get; private set; }
-        public ICommand ExpandCollapse { get; private set; }
         public InputType LastInput { get; private set; }
         public ICommand DisplaySettingsChanged { get; }
 
@@ -39,7 +35,6 @@ namespace EarTrumpet.UI.ViewModels
         public FlyoutViewModel(DeviceCollectionViewModel mainViewModel, Action returnFocusToTray, AppSettings settings)
         {
             _settings = settings;
-            IsExpanded = _settings.IsExpanded;
             Dialog = new ModalDialogViewModel();
             Devices = new ObservableCollection<DeviceViewModel>();
             _returnFocusToTray = returnFocusToTray;
@@ -53,11 +48,6 @@ namespace EarTrumpet.UI.ViewModels
             _deBounceTimer = new DispatcherTimer { Interval = TimeSpan.FromMilliseconds(300) };
             _deBounceTimer.Tick += OnDeBounceTimerTick;
 
-            ExpandCollapse = new RelayCommand(() =>
-            {
-                IsExpandingOrCollapsing = true;
-                BeginClose(LastInput);
-            });
             DisplaySettingsChanged = new RelayCommand(() => BeginClose(InputType.Command));
 
             _mh = new MouseHook();
@@ -78,10 +68,7 @@ namespace EarTrumpet.UI.ViewModels
 
         private void AddDevice(DeviceViewModel device)
         {
-            if (IsExpanded || Devices.Count == 0)
-            {
-                Devices.Insert(0, device);
-            }
+            Devices.Insert(0, device);
         }
 
         private void RemoveDevice(string id)
@@ -129,8 +116,6 @@ namespace EarTrumpet.UI.ViewModels
 
         private void RaiseDevicesChanged()
         {
-            RaisePropertyChanged(nameof(IsExpanded));
-            RaisePropertyChanged(nameof(CanExpand));
             RaisePropertyChanged(nameof(DeviceNameText));
             InvalidateWindowSize();
         }
@@ -151,10 +136,7 @@ namespace EarTrumpet.UI.ViewModels
                 var foundAllDevice = _mainViewModel.AllDevices.FirstOrDefault(d => d.Id == e.Id);
                 if (foundAllDevice != null)
                 {
-                    // We found the device in AllDevices which was not in Devices.
-                    // Thus: We are collapsed and can dump the single device in Devices:
-                    Devices.Clear();
-                    Devices.Add(foundAllDevice);
+                    AddDevice(foundAllDevice);
                 }
             }
             UpdateTextVisibility();
@@ -163,43 +145,11 @@ namespace EarTrumpet.UI.ViewModels
 
         private void UpdateTextVisibility()
         {
-            // Show display name on only the "top" device, which handles Expanded and Collapsed.
-            for (var i = 0; i < Devices.Count; i++)
+            // The device list is always fully expanded, so every device shows its own name.
+            foreach (var device in Devices)
             {
-                Devices[i].IsDisplayNameVisible = i > 0;
+                device.IsDisplayNameVisible = true;
             }
-        }
-
-        public void DoExpandCollapse()
-        {
-            IsExpanded = !IsExpanded;
-            _settings.IsExpanded = IsExpanded;
-            if (IsExpanded)
-            {
-                // Add any that aren't existing.
-                foreach (var device in _mainViewModel.AllDevices)
-                {
-                    if (!Devices.Contains(device))
-                    {
-                        Devices.Insert(0, device);
-                    }
-                }
-            }
-            else
-            {
-                // Remove all but the default.
-                for (int i = Devices.Count - 1; i >= 0; i--)
-                {
-                    var device = Devices[i];
-                    if (device.Id != _mainViewModel.Default?.Id)
-                    {
-                        Devices.Remove(device);
-                    }
-                }
-            }
-
-            UpdateTextVisibility();
-            RaiseDevicesChanged();
         }
 
         private void InvalidateWindowSize()
@@ -233,21 +183,13 @@ namespace EarTrumpet.UI.ViewModels
                     _mainViewModel.OnTrayFlyoutHidden();
                     Dialog.IsVisible = false;
 
-                    if (LastInput == InputType.Keyboard && !IsExpandingOrCollapsing)
+                    if (LastInput == InputType.Keyboard)
                     {
                         _returnFocusToTray.Invoke();
                     }
                     break;
                 case FlyoutViewState.Closing_Stage2:
                     _deBounceTimer.Start();
-                    break;
-                case FlyoutViewState.Hidden:
-                    if (IsExpandingOrCollapsing)
-                    {
-                        IsExpandingOrCollapsing = false;
-                        DoExpandCollapse();
-                        BeginOpen(LastInput);
-                    }
                     break;
             }
         }

@@ -8,7 +8,7 @@
         xmlns:resx="clr-namespace:EarTrumpet.Properties"
         xmlns:views="clr-namespace:EarTrumpet.UI.Views"
         xmlns:vm="clr-namespace:EarTrumpet.UI.ViewModels"
-        Title="EarTrumpet"
+        Title="DeviceTrumpet"
         Width="{StaticResource WindowAndItemSize}"
         Theme:Brush.Foreground="Text"
         Theme:Options.Scope="Flyout"
@@ -28,56 +28,6 @@
         UseLayoutRounding="True"
         WindowStyle="None">
     <Window.Resources>
-        <Style x:Key="ExpandCollapseButtonStyle" TargetType="Button">
-            <Setter Property="Background" Value="Transparent" />
-            <Setter Property="BorderThickness" Value="0" />
-            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-            <Setter Property="VerticalAlignment" Value="Top" />
-            <Setter Property="Theme:Brush.Foreground" Value="Theme=Text, HighContrast=ControlText" />
-            <Setter Property="FocusVisualStyle" Value="{StaticResource Windows10FocusVisualStyle}" />
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border x:Name="border"
-                                Background="{TemplateBinding Background}"
-                                SnapsToDevicePixels="True">
-                            <ContentPresenter RecognizesAccessKey="True" />
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="true">
-                    <Setter Property="Theme:Brush.Background" Value="Theme=#20FFFFFF, HighContrast=Highlight" />
-                    <Setter Property="Theme:Brush.Foreground" Value="Theme=ApplicationText{Theme}Theme, HighContrast=HighlightText" />
-                </Trigger>
-                <Trigger Property="IsPressed" Value="true">
-                    <Setter Property="Theme:Brush.Background" Value="Theme=#2FFFFFFF, HighContrast=Highlight" />
-                    <Setter Property="Theme:Brush.Foreground" Value="Theme=ApplicationText{Theme}Theme, HighContrast=HighlightText" />
-                </Trigger>
-                <MultiTrigger>
-                    <MultiTrigger.Conditions>
-                        <Condition Property="IsMouseOver" Value="True" />
-                        <Condition Property="Theme:OS.IsWindows11" Value="True" />
-                    </MultiTrigger.Conditions>
-                    <MultiTrigger.Setters>
-                        <Setter Property="Theme:Brush.Background" Value="Theme=Control{Theme}SelectHighlightHover, HighContrast=Highlight" />
-                        <Setter Property="Theme:Brush.Foreground" Value="Theme=ApplicationText{Theme}Theme, HighContrast=HighlightText" />
-                    </MultiTrigger.Setters>
-                </MultiTrigger>
-                <MultiTrigger>
-                    <MultiTrigger.Conditions>
-                        <Condition Property="IsPressed" Value="True" />
-                        <Condition Property="Theme:OS.IsWindows11" Value="True" />
-                    </MultiTrigger.Conditions>
-                    <MultiTrigger.Setters>
-                        <Setter Property="Theme:Brush.Background" Value="Theme=Control{Theme}SelectHighlightHover/0.20, HighContrast=Highlight" />
-                        <Setter Property="Theme:Brush.Foreground" Value="Theme=ApplicationText{Theme}Theme, HighContrast=HighlightText" />
-                    </MultiTrigger.Setters>
-                </MultiTrigger>
-            </Style.Triggers>
-        </Style>
-
         <Style x:Key="{x:Type ScrollViewer}"
                BasedOn="{StaticResource {x:Type ScrollViewer}}"
                TargetType="{x:Type ScrollViewer}">
@@ -127,65 +77,6 @@
                                   FocusVisualStyle="{x:Null}"
                                   IsTabStop="False"
                                   ItemsSource="{Binding Devices}" />
-                    <Button Height="{DynamicResource Mutable_DeviceTitleCellHeight}"
-                            Command="{Binding ExpandCollapse}"
-                            IsEnabled="{Binding CanExpand}">
-                        <Button.Style>
-                            <Style BasedOn="{StaticResource ExpandCollapseButtonStyle}" TargetType="{x:Type Button}">
-                                <Style.Triggers>
-                                    <MultiDataTrigger>
-                                        <MultiDataTrigger.Conditions>
-                                            <Condition Binding="{Binding CanExpand}" Value="True" />
-                                            <Condition Binding="{Binding IsExpanded}" Value="True" />
-                                        </MultiDataTrigger.Conditions>
-                                        <Setter Property="AutomationProperties.Name" Value="{x:Static resx:Resources.CollapseAccessibleText}" />
-                                    </MultiDataTrigger>
-                                    <MultiDataTrigger>
-                                        <MultiDataTrigger.Conditions>
-                                            <Condition Binding="{Binding CanExpand}" Value="True" />
-                                            <Condition Binding="{Binding IsExpanded}" Value="False" />
-                                        </MultiDataTrigger.Conditions>
-                                        <Setter Property="AutomationProperties.Name" Value="{x:Static resx:Resources.ExpandAccessibleText}" />
-                                    </MultiDataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-                        <Button.Content>
-                            <Grid>
-                                <TextBlock Margin="12,0,32,0"
-                                           HorizontalAlignment="Left"
-                                           Theme:Brush.Foreground="{Binding (Theme:Brush.Foreground), RelativeSource={RelativeSource AncestorType=Button}}"
-                                           Style="{StaticResource DeviceTitleTextStyle}"
-                                           Text="{Binding DeviceNameText}"
-                                           TextTrimming="CharacterEllipsis" />
-                                <TextBlock Margin="{StaticResource WindowMargin}"
-                                           HorizontalAlignment="Right"
-                                           Theme:Brush.Foreground="{Binding (Theme:Brush.Foreground), RelativeSource={RelativeSource AncestorType=Button}}"
-                                           FontSize="{DynamicResource Mutable_ExpandCollapseButtonGlyphFontSize}">
-                                    <TextBlock.Style>
-                                        <Style BasedOn="{StaticResource GlyphTextBlockStyle}" TargetType="{x:Type TextBlock}">
-                                            <Style.Triggers>
-                                                <MultiDataTrigger>
-                                                    <MultiDataTrigger.Conditions>
-                                                        <Condition Binding="{Binding CanExpand}" Value="True" />
-                                                        <Condition Binding="{Binding IsExpanded}" Value="True" />
-                                                    </MultiDataTrigger.Conditions>
-                                                    <Setter Property="Text" Value="&#xe011;" />
-                                                </MultiDataTrigger>
-                                                <MultiDataTrigger>
-                                                    <MultiDataTrigger.Conditions>
-                                                        <Condition Binding="{Binding CanExpand}" Value="True" />
-                                                        <Condition Binding="{Binding IsExpanded}" Value="False" />
-                                                    </MultiDataTrigger.Conditions>
-                                                    <Setter Property="Text" Value="&#xe010;" />
-                                                </MultiDataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </TextBlock.Style>
-                                </TextBlock>
-                            </Grid>
-                        </Button.Content>
-                    </Button>
                 </Grid>
             </Grid>
         </ScrollViewer>

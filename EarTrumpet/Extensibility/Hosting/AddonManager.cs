@@ -1,5 +1,4 @@
-﻿using EarTrumpet.Actions;
-using EarTrumpet.Extensions;
+﻿using EarTrumpet.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -13,12 +12,9 @@ namespace EarTrumpet.Extensibility.Hosting
 
         private static readonly AddonResolver s_resolver = new AddonResolver();
         private static readonly List<string> s_loadedAddonIds = new List<string>();
-        private static bool s_shouldLoadInternalAddons = false;
 
-        public static void Load(bool shouldLoadInternalAddons = false)
+        public static void Load()
         {
-            s_shouldLoadInternalAddons = shouldLoadInternalAddons;
-
             Host.Addons = new List<EarTrumpetAddon>();
             var loadedCatalogs = s_resolver.Load(Host);
             {
@@ -37,11 +33,6 @@ namespace EarTrumpet.Extensibility.Hosting
                 }
             }
 
-            if (s_shouldLoadInternalAddons)
-            {
-                LoadInternalAddons();
-            }
-
             Host.Events = Host.Addons.Where(a => a is IEarTrumpetAddonEvents).Select(a => (IEarTrumpetAddonEvents)a).ToList();
             Host.TrayContextMenuItems = Host.Addons.Where(a => a is IEarTrumpetAddonNotificationAreaContextMenu).Select(a => (IEarTrumpetAddonNotificationAreaContextMenu)a).ToList();
             Host.AppContentItems = Host.Addons.Where(a => a is IEarTrumpetAddonAppContent).Select(a => (IEarTrumpetAddonAppContent)a).ToList();
@@ -50,13 +41,6 @@ namespace EarTrumpet.Extensibility.Hosting
 
             Host.Events.ForEachNoThrow(x => x.OnAddonEvent(AddonEventKind.InitializeAddon));
             Host.Events.ForEachNoThrow(x => x.OnAddonEvent(AddonEventKind.AddonsInitialized));
-        }
-
-        private static void LoadInternalAddons()
-        {
-            var actions = new EarTrumpetActionsAddon();
-            Host.Addons.Add(actions);
-            ((IAddonInternal)actions).InitializeInternal(new AddonManifest { Id = "EarTrumpet.Actions" });
         }
 
         public static void Shutdown()

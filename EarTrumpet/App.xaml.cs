@@ -96,7 +96,7 @@ namespace EarTrumpet
 
         private void CompleteStartup()
         {
-            AddonManager.Load(shouldLoadInternalAddons: HasDevIdentity);
+            AddonManager.Load();
             Exit += (_, __) => AddonManager.Shutdown();
 #if DEBUG
             DebugHelpers.Add();

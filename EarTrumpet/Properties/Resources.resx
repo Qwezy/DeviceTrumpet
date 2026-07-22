@@ -136,7 +136,7 @@
     <value>It doesn't look like you have any playback devices.</value>
   </data>
   <data name="NoDeviceTrayText" xml:space="preserve">
-    <value>EarTrumpet: No playback devices</value>
+    <value>DeviceTrumpet: No playback devices</value>
   </data>
   <data name="PlaybackDevicesText" xml:space="preserve">
     <value>Playback devices</value>
@@ -238,7 +238,7 @@
     <value>Configure shortcuts and get help</value>
   </data>
   <data name="SettingsTitle" xml:space="preserve">
-    <value>EarTrumpet Settings</value>
+    <value>DeviceTrumpet Settings</value>
   </data>
   <data name="ShortcutsPageText" xml:space="preserve">
     <value>Shortcuts</value>
@@ -277,10 +277,10 @@
     <value>Close</value>
   </data>
   <data name="WelcomeDialogHeaderText" xml:space="preserve">
-    <value>Welcome to EarTrumpet</value>
+    <value>Welcome to DeviceTrumpet</value>
   </data>
   <data name="CriticalFailureDialogHeaderText" xml:space="preserve">
-    <value>EarTrumpet couldn't start</value>
+    <value>DeviceTrumpet couldn't start</value>
   </data>
   <data name="CriticalFailureFontLookupHelpText" xml:space="preserve">
     <value>A broken font on your system is preventing EarTrumpet from starting.
@@ -654,7 +654,7 @@ Open [https://eartrumpet.app/jmp/fixfonts] now?</value>
     <value>Mouse settings</value>
   </data>
   <data name="SettingsUseScrollWheelInTray" xml:space="preserve">
-    <value>Use the scroll wheel to change volume while hovering over the EarTrumpet icon</value>
+    <value>Use the scroll wheel to change volume while hovering over the DeviceTrumpet icon</value>
   </data>
   <data name="SettingsUseGlobalMouseWheelHook" xml:space="preserve">
     <value>Use the scroll wheel to change volume while the flyout is open</value>

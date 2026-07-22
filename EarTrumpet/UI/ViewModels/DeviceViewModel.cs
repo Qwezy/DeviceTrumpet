@@ -3,7 +3,6 @@ using EarTrumpet.DataModel.WindowsAudio;
 using EarTrumpet.Extensions;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 
 namespace EarTrumpet.UI.ViewModels
 {
@@ -35,9 +34,6 @@ namespace EarTrumpet.UI.ViewModels
         public string DeviceDescription => ((IAudioDeviceWindowsAudio)_device).DeviceDescription;
         public string EnumeratorName => ((IAudioDeviceWindowsAudio)_device).EnumeratorName;
         public string InterfaceName => ((IAudioDeviceWindowsAudio)_device).InterfaceName;
-        // Kept as an empty compatibility collection for add-ons compiled against
-        // EarTrumpet. DeviceTrumpet never adds application sessions to it.
-        public ObservableCollection<IAppItemViewModel> Apps { get; } = new ObservableCollection<IAppItemViewModel>();
 
         public bool IsDisplayNameVisible
         {
