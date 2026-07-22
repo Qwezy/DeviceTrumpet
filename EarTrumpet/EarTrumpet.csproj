@@ -297,9 +297,6 @@
     <Compile Include="Extensions\IconExtensions.cs" />
     <Compile Include="DataModel\WindowsAudio\Internal\AudioDevice.cs" />
     <Compile Include="DataModel\WindowsAudio\Internal\AudioDeviceManager.cs" />
-    <Compile Include="UI\Views\FullWindow.xaml.cs">
-      <DependentUpon>FullWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -312,7 +309,6 @@
     <Compile Include="Extensions\WindowExtensions.cs" />
     <Compile Include="UI\ViewModels\DeviceViewModel.cs" />
     <Compile Include="UI\ViewModels\FlyoutViewModel.cs" />
-    <Compile Include="UI\ViewModels\FullWindowViewModel.cs" />
     <Compile Include="UI\ViewModels\DeviceCollectionViewModel.cs" />
     <Compile Include="BindableBase.cs" />
     <Compile Include="UI\ViewModels\AudioSessionViewModel.cs" />
@@ -329,10 +325,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\Views\DeviceView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UI\Views\FullWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

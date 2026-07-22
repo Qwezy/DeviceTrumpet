@@ -25,7 +25,6 @@ namespace EarTrumpet.UI.ViewModels
         private readonly AppSettings _settings;
         private readonly Dispatcher _currentDispatcher = Dispatcher.CurrentDispatcher;
         private bool _isFlyoutVisible;
-        private bool _isFullWindowVisible;
 
         public DeviceCollectionViewModel(IAudioDeviceManager deviceManager, AppSettings settings)
         {
@@ -144,7 +143,7 @@ namespace EarTrumpet.UI.ViewModels
 
         private void StartOrStopPeakTimer()
         {
-            _peakMeterTimer.Enabled = _isFlyoutVisible || _isFullWindowVisible;
+            _peakMeterTimer.Enabled = _isFlyoutVisible;
         }
 
         public void OnTrayFlyoutShown()
@@ -156,18 +155,6 @@ namespace EarTrumpet.UI.ViewModels
         public void OnTrayFlyoutHidden()
         {
             _isFlyoutVisible = false;
-            StartOrStopPeakTimer();
-        }
-
-        public void OnFullWindowClosed()
-        {
-            _isFullWindowVisible = false;
-            StartOrStopPeakTimer();
-        }
-
-        public void OnFullWindowOpened()
-        {
-            _isFullWindowVisible = true;
             StartOrStopPeakTimer();
         }
 

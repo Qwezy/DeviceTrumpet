@@ -9,9 +9,6 @@ namespace EarTrumpet.UI.ViewModels
         public HotkeyViewModel OpenFlyoutHotkey { get; }
         public string DefaultHotKey => s_hotkeyNoneText;
 
-        public HotkeyViewModel OpenMixerHotkey { get; }
-        public string DefaultMixerHotKey => s_hotkeyNoneText;
-
         public HotkeyViewModel OpenSettingsHotkey { get; }
         public string DefaultSettingsHotKey => s_hotkeyNoneText;
 
@@ -27,7 +24,6 @@ namespace EarTrumpet.UI.ViewModels
             Glyph = "\xE765";
 
             OpenFlyoutHotkey = new HotkeyViewModel(settings.FlyoutHotkey, (newHotkey) => settings.FlyoutHotkey = newHotkey);
-            OpenMixerHotkey = new HotkeyViewModel(settings.MixerHotkey, (newHotkey) => settings.MixerHotkey = newHotkey);
             OpenSettingsHotkey = new HotkeyViewModel(settings.SettingsHotkey, (newHotkey) => settings.SettingsHotkey = newHotkey);
             AbsoluteVolumeUpHotkey = new HotkeyViewModel(settings.AbsoluteVolumeUpHotkey, (newHotkey) => settings.AbsoluteVolumeUpHotkey = newHotkey);
             AbsoluteVolumeDownHotkey = new HotkeyViewModel(settings.AbsoluteVolumeDownHotkey, (newHotkey) => settings.AbsoluteVolumeDownHotkey = newHotkey);

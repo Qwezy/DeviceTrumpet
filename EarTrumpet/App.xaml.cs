@@ -36,7 +36,6 @@ namespace EarTrumpet
         private FlyoutViewModel _flyoutViewModel;
 
         private ShellNotifyIcon _trayIcon;
-        private WindowHolder _mixerWindow;
         private WindowHolder _settingsWindow;
         private ErrorReporter _errorReporter;
 
@@ -101,11 +100,9 @@ namespace EarTrumpet
 #if DEBUG
             DebugHelpers.Add();
 #endif
-            _mixerWindow = new WindowHolder(CreateMixerExperience);
             _settingsWindow = new WindowHolder(CreateSettingsExperience);
 
             Settings.FlyoutHotkeyTyped += () => _flyoutViewModel.OpenFlyout(InputType.Keyboard);
-            Settings.MixerHotkeyTyped += () => _mixerWindow.OpenOrClose();
             Settings.SettingsHotkeyTyped += () => _settingsWindow.OpenOrBringToFront();
             Settings.AbsoluteVolumeUpHotkeyTyped += AbsoluteVolumeIncrement;
             Settings.AbsoluteVolumeDownHotkeyTyped += AbsoluteVolumeDecrement;
@@ -228,7 +225,6 @@ namespace EarTrumpet
 
             ret.AddRange(new List<ContextMenuItem>
                 {
-                    new ContextMenuItem { DisplayName = EarTrumpet.Properties.Resources.FullWindowTitleText, Command = new RelayCommand(_mixerWindow.OpenOrBringToFront) },
                     new ContextMenuItem { DisplayName = EarTrumpet.Properties.Resources.SettingsWindowText, Command = new RelayCommand(_settingsWindow.OpenOrBringToFront) },
                     new ContextMenuItem { DisplayName = EarTrumpet.Properties.Resources.ContextMenuExitTitle, Command = new RelayCommand(Shutdown) },
                 });
@@ -274,8 +270,6 @@ namespace EarTrumpet
             }
             return category;
         }
-
-        private Window CreateMixerExperience() => new FullWindow { DataContext = new FullWindowViewModel(CollectionViewModel) };
 
         private void AbsoluteVolumeIncrement()
         {

@@ -10,7 +10,6 @@ namespace EarTrumpet
     {
         public event EventHandler<bool> UseLegacyIconChanged;
         public event Action FlyoutHotkeyTyped;
-        public event Action MixerHotkeyTyped;
         public event Action SettingsHotkeyTyped;
         public event Action AbsoluteVolumeUpHotkeyTyped;
         public event Action AbsoluteVolumeDownHotkeyTyped;
@@ -20,7 +19,6 @@ namespace EarTrumpet
         public void RegisterHotkeys()
         {
             HotkeyManager.Current.Register(FlyoutHotkey);
-            HotkeyManager.Current.Register(MixerHotkey);
             HotkeyManager.Current.Register(SettingsHotkey);
             HotkeyManager.Current.Register(AbsoluteVolumeUpHotkey);
             HotkeyManager.Current.Register(AbsoluteVolumeDownHotkey);
@@ -36,11 +34,6 @@ namespace EarTrumpet
                 {
                     Trace.WriteLine("AppSettings SettingsHotkeyTyped");
                     SettingsHotkeyTyped?.Invoke();
-                }
-                else if (hotkey.Equals(MixerHotkey))
-                {
-                    Trace.WriteLine("AppSettings MixerHotkeyTyped");
-                    MixerHotkeyTyped?.Invoke();
                 }
                 else if (hotkey.Equals(AbsoluteVolumeUpHotkey))
                 {
@@ -63,17 +56,6 @@ namespace EarTrumpet
                 HotkeyManager.Current.Unregister(FlyoutHotkey);
                 _settings.Set("Hotkey", value);
                 HotkeyManager.Current.Register(FlyoutHotkey);
-            }
-        }
-
-        public HotkeyData MixerHotkey
-        {
-            get => _settings.Get("MixerHotkey", new HotkeyData { });
-            set
-            {
-                HotkeyManager.Current.Unregister(MixerHotkey);
-                _settings.Set("MixerHotkey", value);
-                HotkeyManager.Current.Register(MixerHotkey);
             }
         }
 
@@ -148,12 +130,6 @@ namespace EarTrumpet
         {
             get => _settings.Get("UseLogarithmicVolume", false);
             set => _settings.Set("UseLogarithmicVolume", value);
-        }
-
-        public WINDOWPLACEMENT? FullMixerWindowPlacement
-        {
-            get => _settings.Get("FullMixerWindowPlacement", default(WINDOWPLACEMENT?));
-            set => _settings.Set("FullMixerWindowPlacement", value);
         }
 
         public WINDOWPLACEMENT? SettingsWindowPlacement
