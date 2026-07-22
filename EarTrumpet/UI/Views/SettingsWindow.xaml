@@ -153,7 +153,7 @@
         </DataTemplate>
         <DataTemplate DataType="{x:Type vm:EarTrumpetAboutPageViewModel}">
             <StackPanel>
-                <StackPanel Margin="12,24" Orientation="Horizontal">
+                <StackPanel Margin="0,24,0,24" Orientation="Horizontal">
                     <Border Width="40"
                             Height="30"
                             Margin="0,0,8,0">
@@ -169,24 +169,20 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <StackPanel>
-                        <TextBlock VerticalAlignment="Center"
+                        <TextBlock Margin="0,0,12,0"
+                                   VerticalAlignment="Center"
+                                   Style="{StaticResource BodyText}"
+                                   Text="DeviceTrumpet is Qwezy's personal fork of EarTrumpet, customized for their own use."
+                                   TextWrapping="Wrap" />
+                        <TextBlock Margin="0,12,0,0"
+                                   VerticalAlignment="Center"
                                    Style="{StaticResource BodyText}"
                                    Text="{Binding AboutText}" />
                         <TextBlock VerticalAlignment="Center"
                                    Style="{StaticResource BodyText}"
                                    Text="© File-New-Project" />
-                        <TextBlock Margin="0,12,12,0"
-                                   VerticalAlignment="Center"
-                                   Style="{StaticResource BodyText}"
-                                   Text="DeviceTrumpet is Qwezy's personal fork of EarTrumpet, customized for their own use."
-                                   TextWrapping="Wrap" />
                         <TextBlock Style="{StaticResource HyperlinkBlock}"><Hyperlink Command="{Binding OpenAboutCommand}">
                                 <Run Text="{x:Static resx:Resources.WebsiteText}" />
-                            </Hyperlink>
-                        </TextBlock>
-                        <TextBlock Style="{StaticResource HyperlinkBlock}">
-                            <Hyperlink Command="{Binding OpenFeedbackCommand}">
-                                <Run Text="{x:Static resx:Resources.ContextMenuSendFeedback}" />
                             </Hyperlink>
                         </TextBlock>
                         <TextBlock Style="{StaticResource HyperlinkBlock}">
@@ -401,6 +397,7 @@
                         <Border x:Name="Bd"
                                 Background="{TemplateBinding Background}"
                                 BorderThickness="2"
+                                CornerRadius="6"
                                 SnapsToDevicePixels="true">
 
                             <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -899,7 +896,7 @@
                                 <Button Width="44"
                                         Height="44"
                                         HorizontalAlignment="Left"
-                                        VerticalAlignment="Center"
+                                        VerticalAlignment="Bottom"
                                         HorizontalContentAlignment="Center"
                                         VerticalContentAlignment="Center"
                                         AutomationProperties.Name="{x:Static resx:Resources.HomeButtonText}"

@@ -9,7 +9,6 @@ namespace EarTrumpet.UI.ViewModels
     {
         public ICommand OpenDiagnosticsCommand { get; }
         public ICommand OpenAboutCommand { get; }
-        public ICommand OpenFeedbackCommand { get; }
         public string AboutText { get; }
 
         private readonly Action _openDiagnostics;
@@ -23,10 +22,8 @@ namespace EarTrumpet.UI.ViewModels
 
             OpenAboutCommand = new RelayCommand(OpenAbout);
             OpenDiagnosticsCommand = new RelayCommand(_openDiagnostics.Invoke);
-            OpenFeedbackCommand = new RelayCommand(OpenGitHubIssueChooser);
         }
 
-        private void OpenGitHubIssueChooser() => ProcessHelper.StartNoThrow("https://github.com/File-New-Project/EarTrumpet/issues/new/choose");
         private void OpenAbout() => ProcessHelper.StartNoThrow("https://github.com/File-New-Project/EarTrumpet");
     }
 }

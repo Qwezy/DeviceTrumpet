@@ -48,7 +48,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
-                        <Border Background="{TemplateBinding Background}">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="4">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </Border>
                     </ControlTemplate>
@@ -82,11 +82,10 @@
                 <!--  A real (if visually negligible) background is required across the whole strip: this window
                       is AllowsTransparency="True", so any pixel where nothing paints at all (alpha 0) is a
                       genuine OS-level click-through, not just a WPF-internal hit-test miss.  -->
-                <Grid Grid.Row="0"
-                      Height="{DynamicResource Mutable_DeviceTitleCellHeight}"
-                      Background="#01000000">
+                <Grid Grid.Row="0" Height="50" Background="#01000000">
                     <StackPanel Margin="0,0,6,0"
                                 HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
                                 Orientation="Horizontal">
                         <Button x:Name="DefaultDeviceButton"
                                 AutomationProperties.Name="{x:Static resx:Resources.SelectDefaultDeviceAccessibleText}"

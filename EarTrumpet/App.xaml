@@ -1079,6 +1079,7 @@
                                     Theme:Brush.Background="{TemplateBinding Theme:Brush.Background}"
                                     Theme:Brush.BorderBrush="{TemplateBinding Theme:Brush.BorderBrush}"
                                     BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="4"
                                     SnapsToDevicePixels="True">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
@@ -1421,6 +1422,7 @@
                             <Border x:Name="border"
                                     Margin="0,-1,0,0"
                                     Background="{TemplateBinding Background}"
+                                    CornerRadius="4"
                                     SnapsToDevicePixels="True">
                                 <ContentPresenter />
                             </Border>
