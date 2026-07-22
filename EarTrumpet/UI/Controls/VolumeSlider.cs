@@ -192,7 +192,19 @@ namespace EarTrumpet.UI.Controls
             var thumbWidth = _thumb?.ActualWidth ?? 0;
             var usableWidth = ActualWidth - thumbWidth;
             var percent = usableWidth > 0 ? (point.X - thumbWidth / 2) / usableWidth : 0;
-            Value = Bound((Maximum - Minimum) * percent);
+            var newValue = Bound((Maximum - Minimum) * percent);
+
+            if (_moveLogCount <= 8)
+            {
+                System.Diagnostics.Debug.WriteLine($"[VolumeSlider] SETPOS point.X={point.X} ActualWidth={ActualWidth} thumbWidth={thumbWidth} usableWidth={usableWidth} percent={percent} oldValue={Value} newValue={newValue}");
+            }
+
+            Value = newValue;
+
+            if (_moveLogCount <= 8)
+            {
+                System.Diagnostics.Debug.WriteLine($"[VolumeSlider] SETPOS afterSet Value={Value}");
+            }
         }
 
         public void ChangePositionByAmount(double amount)
