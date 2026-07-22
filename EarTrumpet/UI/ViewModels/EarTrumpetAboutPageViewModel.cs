@@ -8,7 +8,8 @@ namespace EarTrumpet.UI.ViewModels
     class EarTrumpetAboutPageViewModel : SettingsPageViewModel
     {
         public ICommand OpenDiagnosticsCommand { get; }
-        public ICommand OpenAboutCommand { get; }
+        public ICommand OpenEarTrumpetCommand { get; }
+        public ICommand OpenForkCommand { get; }
         public string AboutText { get; }
 
         private readonly Action _openDiagnostics;
@@ -18,12 +19,14 @@ namespace EarTrumpet.UI.ViewModels
             _openDiagnostics = openDiagnostics;
             Glyph = "\xE946";
             Title = Properties.Resources.AboutTitle;
-            AboutText = $"DeviceTrumpet {App.PackageVersion}";
+            AboutText = $"DeviceTrumpet 1.1.0 based on EarTrumpet {App.PackageVersion}";
 
-            OpenAboutCommand = new RelayCommand(OpenAbout);
+            OpenEarTrumpetCommand = new RelayCommand(OpenEarTrumpet);
+            OpenForkCommand = new RelayCommand(OpenFork);
             OpenDiagnosticsCommand = new RelayCommand(_openDiagnostics.Invoke);
         }
 
-        private void OpenAbout() => ProcessHelper.StartNoThrow("https://github.com/File-New-Project/EarTrumpet");
+        private void OpenEarTrumpet() => ProcessHelper.StartNoThrow("https://github.com/File-New-Project/EarTrumpet");
+        private void OpenFork() => ProcessHelper.StartNoThrow("https://github.com/Qwezy/DeviceTrumpet");
     }
 }

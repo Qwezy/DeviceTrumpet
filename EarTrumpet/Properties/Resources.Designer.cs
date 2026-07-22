@@ -1735,7 +1735,25 @@ namespace EarTrumpet.Properties {
                 return ResourceManager.GetString("WebsiteText", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to EarTrumpet on GitHub.
+        /// </summary>
+        public static string EarTrumpetGitHubLinkText {
+            get {
+                return ResourceManager.GetString("EarTrumpetGitHubLinkText", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to DeviceTrumpet on GitHub.
+        /// </summary>
+        public static string DeviceTrumpetGitHubLinkText {
+            get {
+                return ResourceManager.GetString("DeviceTrumpetGitHubLinkText", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to Welcome to EarTrumpet.
         /// </summary>

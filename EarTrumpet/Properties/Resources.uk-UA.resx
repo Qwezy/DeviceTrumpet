@@ -165,6 +165,12 @@
   <data name="WebsiteText" xml:space="preserve">
     <value>Дізнатися більше</value>
   </data>
+  <data name="EarTrumpetGitHubLinkText" xml:space="preserve">
+    <value>EarTrumpet на GitHub</value>
+  </data>
+  <data name="DeviceTrumpetGitHubLinkText" xml:space="preserve">
+    <value>DeviceTrumpet на GitHub</value>
+  </data>
   <data name="AppOrDeviceFormatAccessibleText" xml:space="preserve">
     <value>{Volume} відсоток гучності - {Name}</value>
   </data>

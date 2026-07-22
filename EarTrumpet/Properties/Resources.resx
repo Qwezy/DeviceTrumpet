@@ -171,6 +171,12 @@
   <data name="WebsiteText" xml:space="preserve">
     <value>Learn more</value>
   </data>
+  <data name="EarTrumpetGitHubLinkText" xml:space="preserve">
+    <value>EarTrumpet on GitHub</value>
+  </data>
+  <data name="DeviceTrumpetGitHubLinkText" xml:space="preserve">
+    <value>DeviceTrumpet on GitHub</value>
+  </data>
   <data name="AppOrDeviceFormatAccessibleText" xml:space="preserve">
     <value>"{Volume}% volume - {Name}"</value>
   </data>
