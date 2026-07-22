@@ -467,9 +467,15 @@
                                 <Border Name="TrackBackground" Height="2" />
                                 <Track Name="PART_Track">
                                     <Track.DecreaseRepeatButton>
+                                        <!-- IsHitTestVisible=False: VolumeSlider reimplements all click/drag
+                                             handling itself and captures the mouse on PreviewMouseDown, but
+                                             RepeatButton's own ButtonBase press-tracking still runs via class
+                                             handlers (registered with handledEventsToo) and steals the mouse
+                                             capture on track clicks, breaking drag continuation. This button
+                                             is purely visual (the track fill segment); let clicks pass through. -->
                                         <RepeatButton Name="SliderLeft"
+                                                      IsHitTestVisible="False"
                                                       Theme:Brush.Foreground="SystemAccentLight2"
-                                                      Command="Slider.DecreaseLarge"
                                                       Style="{StaticResource SliderButtonStyle}" />
                                     </Track.DecreaseRepeatButton>
                                     <Track.Thumb>
@@ -486,8 +492,8 @@
                                     </Track.Thumb>
                                     <Track.IncreaseRepeatButton>
                                         <RepeatButton Name="SliderRight"
+                                                      IsHitTestVisible="False"
                                                       Theme:Brush.Foreground=":Theme=Control{Theme}SliderTrackFillDisabled, :HighContrast=ControlText, Flyout:Theme=FlyoutThemeTrackRightBackground, Flyout:HighContrast=ControlText"
-                                                      Command="Slider.IncreaseLarge"
                                                       Style="{StaticResource SliderButtonStyle}" />
                                     </Track.IncreaseRepeatButton>
                                 </Track>
