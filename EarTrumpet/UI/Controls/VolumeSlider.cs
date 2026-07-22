@@ -203,7 +203,9 @@ namespace EarTrumpet.UI.Controls
 
             if (_moveLogCount <= 8)
             {
-                System.Diagnostics.Debug.WriteLine($"[VolumeSlider] SETPOS afterSet Value={Value}");
+                double thumbX = -1;
+                try { thumbX = _thumb.TransformToAncestor(this).Transform(new Point(0, 0)).X; } catch { }
+                System.Diagnostics.Debug.WriteLine($"[VolumeSlider] SETPOS afterSet Value={Value} thumbVisualX={thumbX} thumbActualWidth={_thumb?.ActualWidth}");
             }
         }
 
