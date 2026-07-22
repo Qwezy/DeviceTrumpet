@@ -167,36 +167,34 @@
                     </Border>
                     <TextBlock FontSize="24" Text="DeviceTrumpet" />
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <StackPanel>
-                        <TextBlock Margin="0,0,12,0"
-                                   VerticalAlignment="Center"
-                                   Style="{StaticResource BodyText}"
-                                   Text="DeviceTrumpet is Qwezy's personal fork of EarTrumpet: a lighter, Windows 11-styled take on the original, with the per-app volume mixer, addons, and telemetry stripped out in favor of a simpler device-only flyout, reorganized settings, and a visual refresh across menus, sliders, and icons."
-                                   TextWrapping="Wrap" />
-                        <TextBlock Margin="0,12,12,0"
-                                   VerticalAlignment="Center"
-                                   Style="{StaticResource BodyText}"
-                                   Text="{Binding AboutText}" />
-                        <TextBlock Margin="0,0,12,0"
-                                   VerticalAlignment="Center"
-                                   Style="{StaticResource BodyText}"
-                                   Text="© File-New-Project" />
-                        <TextBlock Margin="0,12,12,0" Style="{StaticResource HyperlinkBlock}"><Hyperlink Command="{Binding OpenEarTrumpetCommand}">
-                                <Run Text="{x:Static resx:Resources.EarTrumpetGitHubLinkText}" />
-                            </Hyperlink>
-                        </TextBlock>
-                        <TextBlock Margin="0,0,12,0" Style="{StaticResource HyperlinkBlock}">
-                            <Hyperlink Command="{Binding OpenForkCommand}">
-                                <Run Text="{x:Static resx:Resources.DeviceTrumpetGitHubLinkText}" />
-                            </Hyperlink>
-                        </TextBlock>
-                        <TextBlock Margin="0,0,12,0" Style="{StaticResource HyperlinkBlock}">
-                            <Hyperlink Command="{Binding OpenDiagnosticsCommand}">
-                                <Run Text="{x:Static resx:Resources.TroubleshootEarTrumpetText}" />
-                            </Hyperlink>
-                        </TextBlock>
-                    </StackPanel>
+                <StackPanel>
+                    <TextBlock Margin="0,0,12,0"
+                               VerticalAlignment="Center"
+                               Style="{StaticResource BodyText}"
+                               Text="DeviceTrumpet is Qwezy's personal fork of EarTrumpet: a lighter, Windows 11-styled take on the original, with the per-app volume mixer, addons, and telemetry stripped out in favor of a simpler device-only flyout, reorganized settings, and a visual refresh across menus, sliders, and icons."
+                               TextWrapping="Wrap" />
+                    <TextBlock Margin="0,12,12,0"
+                               VerticalAlignment="Center"
+                               Style="{StaticResource BodyText}"
+                               Text="{Binding AboutText}" />
+                    <TextBlock Margin="0,0,12,0"
+                               VerticalAlignment="Center"
+                               Style="{StaticResource BodyText}"
+                               Text="© File-New-Project" />
+                    <TextBlock Margin="0,12,12,0" Style="{StaticResource HyperlinkBlock}"><Hyperlink Command="{Binding OpenEarTrumpetCommand}">
+                            <Run Text="{x:Static resx:Resources.EarTrumpetGitHubLinkText}" />
+                        </Hyperlink>
+                    </TextBlock>
+                    <TextBlock Margin="0,0,12,0" Style="{StaticResource HyperlinkBlock}">
+                        <Hyperlink Command="{Binding OpenForkCommand}">
+                            <Run Text="{x:Static resx:Resources.DeviceTrumpetGitHubLinkText}" />
+                        </Hyperlink>
+                    </TextBlock>
+                    <TextBlock Margin="0,0,12,0" Style="{StaticResource HyperlinkBlock}">
+                        <Hyperlink Command="{Binding OpenDiagnosticsCommand}">
+                            <Run Text="{x:Static resx:Resources.TroubleshootEarTrumpetText}" />
+                        </Hyperlink>
+                    </TextBlock>
                 </StackPanel>
             </StackPanel>
         </DataTemplate>
