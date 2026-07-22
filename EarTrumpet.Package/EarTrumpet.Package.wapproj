@@ -49,7 +49,6 @@
   <ItemGroup>
     <None Include="EarTrumpet.Package_StoreKey.pfx" />
     <None Include="Package.xml" />
-    <None Include="Package.StoreAssociation.xml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\LargeTile.scale-100.png" />
