@@ -51,8 +51,8 @@
                         </Grid.ColumnDefinitions>
 
                         <Button Name="MuteButton"
-                                Width="30"
-                                Height="30"
+                                Width="36"
+                                Height="36"
                                 Margin="{StaticResource DeviceOrAppIconMargin}"
                                 HorizontalAlignment="Center"
                                 Background="Transparent"
@@ -66,7 +66,7 @@
                             <Button.Content>
                                 <Grid>
                                     <TextBlock Theme:Brush.Foreground="{Binding (Theme:Brush.Foreground), RelativeSource={RelativeSource AncestorType=Button}}"
-                                               FontSize="{DynamicResource Mutable_DeviceVolumeTextFontSize}"
+                                               FontSize="20"
                                                Opacity="0.4">
                                         <TextBlock.Style>
                                             <Style BasedOn="{StaticResource GlyphTextBlockStyle}" TargetType="{x:Type TextBlock}">
@@ -82,7 +82,7 @@
                                             </Style>
                                         </TextBlock.Style>
                                     </TextBlock>
-                                    <TextBlock Theme:Brush.Foreground="{Binding (Theme:Brush.Foreground), RelativeSource={RelativeSource AncestorType=Button}}" FontSize="{DynamicResource Mutable_DeviceVolumeTextFontSize}">
+                                    <TextBlock Theme:Brush.Foreground="{Binding (Theme:Brush.Foreground), RelativeSource={RelativeSource AncestorType=Button}}" FontSize="20">
                                         <TextBlock.Style>
                                             <Style BasedOn="{StaticResource GlyphTextBlockStyle}" TargetType="{x:Type TextBlock}">
                                                 <Style.Triggers>
