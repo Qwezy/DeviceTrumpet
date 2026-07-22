@@ -29,6 +29,7 @@ namespace EarTrumpet.UI.Controls
         private Thumb _thumb;
         private Point _lastMousePosition;
         private bool _isDragging;
+        private int _moveLogCount;
 
         public VolumeSlider() : base()
         {
@@ -101,8 +102,11 @@ namespace EarTrumpet.UI.Controls
                     SetPositionByControlPoint(_lastMousePosition);
                 }
 
-                CaptureMouse();
+                bool captured = CaptureMouse();
                 e.Handled = true;
+
+                _moveLogCount = 0;
+                System.Diagnostics.Debug.WriteLine($"[VolumeSlider] DOWN onThumb={_thumb.IsMouseOver} captureCallReturned={captured} isMouseCaptured={IsMouseCaptured} Mouse.Captured={Mouse.Captured?.GetType().Name ?? "null"}");
             }
         }
 
@@ -116,6 +120,8 @@ namespace EarTrumpet.UI.Controls
 
         private void OnMouseUp(object sender, MouseButtonEventArgs e)
         {
+            System.Diagnostics.Debug.WriteLine($"[VolumeSlider] UP isDragging={_isDragging} isMouseCaptured={IsMouseCaptured} Mouse.Captured={Mouse.Captured?.GetType().Name ?? "null"}");
+
             if (_isDragging || IsMouseCaptured)
             {
                 // If the point is outside of the control, clear the hover state.
@@ -145,6 +151,12 @@ namespace EarTrumpet.UI.Controls
 
         private void OnMouseMove(object sender, MouseEventArgs e)
         {
+            if (_moveLogCount < 8)
+            {
+                _moveLogCount++;
+                System.Diagnostics.Debug.WriteLine($"[VolumeSlider] MOVE isDragging={_isDragging} leftButton={e.LeftButton} isMouseCaptured={IsMouseCaptured} Mouse.Captured={Mouse.Captured?.GetType().Name ?? "null"} pos={e.GetPosition(this)}");
+            }
+
             // Gated on our own _isDragging flag and the physical button state rather than
             // IsMouseCaptured: WPF's routed events still bubble MouseMove up through this
             // element (as an ancestor) even when some descendant control ends up holding
