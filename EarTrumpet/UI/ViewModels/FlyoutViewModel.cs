@@ -20,8 +20,10 @@ namespace EarTrumpet.UI.ViewModels
         public string DeviceNameText => Devices.Count > 0 ? Devices[0].DisplayName : null;
         public FlyoutViewState State { get; private set; }
         public ObservableCollection<DeviceViewModel> Devices { get; private set; }
+        public ObservableCollection<ContextMenuItem> DefaultDeviceMenu { get; }
         public InputType LastInput { get; private set; }
         public ICommand DisplaySettingsChanged { get; }
+        public ICommand OpenSettings { get; }
 
         private readonly DeviceCollectionViewModel _mainViewModel;
         private readonly DispatcherTimer _deBounceTimer;
@@ -32,11 +34,13 @@ namespace EarTrumpet.UI.ViewModels
         private MouseHook _mh;
         private Rect _winRect;
 
-        public FlyoutViewModel(DeviceCollectionViewModel mainViewModel, Action returnFocusToTray, AppSettings settings)
+        public FlyoutViewModel(DeviceCollectionViewModel mainViewModel, Action returnFocusToTray, Action openSettings, AppSettings settings)
         {
             _settings = settings;
             Dialog = new ModalDialogViewModel();
             Devices = new ObservableCollection<DeviceViewModel>();
+            DefaultDeviceMenu = new ObservableCollection<ContextMenuItem>();
+            OpenSettings = new RelayCommand(openSettings);
             _returnFocusToTray = returnFocusToTray;
             _mainViewModel = mainViewModel;
             _mainViewModel.DefaultChanged += OnDefaultPlaybackDeviceChanged;
@@ -111,6 +115,7 @@ namespace EarTrumpet.UI.ViewModels
             }
 
             UpdateTextVisibility();
+            RebuildDefaultDeviceMenu();
             RaiseDevicesChanged();
         }
 
@@ -118,6 +123,20 @@ namespace EarTrumpet.UI.ViewModels
         {
             RaisePropertyChanged(nameof(DeviceNameText));
             InvalidateWindowSize();
+        }
+
+        private void RebuildDefaultDeviceMenu()
+        {
+            DefaultDeviceMenu.Clear();
+            foreach (var device in _mainViewModel.AllDevices.OrderBy(x => x.DisplayName))
+            {
+                DefaultDeviceMenu.Add(new ContextMenuItem
+                {
+                    DisplayName = device.DisplayName,
+                    IsChecked = device.Id == _mainViewModel.Default?.Id,
+                    Command = new RelayCommand(() => device.MakeDefaultDevice()),
+                });
+            }
         }
 
         private void OnDefaultPlaybackDeviceChanged(object sender, DeviceViewModel e)
@@ -140,6 +159,7 @@ namespace EarTrumpet.UI.ViewModels
                 }
             }
             UpdateTextVisibility();
+            RebuildDefaultDeviceMenu();
             RaiseDevicesChanged();
         }
 

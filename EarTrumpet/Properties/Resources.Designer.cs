@@ -1465,7 +1465,16 @@ namespace EarTrumpet.Properties {
                 return ResourceManager.GetString("SettingsWindowText", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to Select default device.
+        /// </summary>
+        public static string SelectDefaultDeviceAccessibleText {
+            get {
+                return ResourceManager.GetString("SelectDefaultDeviceAccessibleText", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to Set a local variable.
         /// </summary>

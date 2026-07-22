@@ -45,8 +45,38 @@
     <Grid x:Name="LayoutRoot">
         <ScrollViewer Name="BaseVisual" VerticalScrollBarVisibility="Auto">
             <Grid Name="ContentGrid" VerticalAlignment="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
 
-                <Border VerticalAlignment="Center" Theme:Brush.Background="FlyoutBackground">
+                <Grid Grid.Row="0" Height="{DynamicResource Mutable_DeviceTitleCellHeight}">
+                    <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                        <Button x:Name="DefaultDeviceButton"
+                                AutomationProperties.Name="{x:Static resx:Resources.SelectDefaultDeviceAccessibleText}"
+                                Click="OnDefaultDeviceButtonClick"
+                                Content="&#xE995;"
+                                IsTabStop="True"
+                                Style="{StaticResource CaptionButtonStyle}"
+                                ToolTipService.ToolTip="{x:Static resx:Resources.SelectDefaultDeviceAccessibleText}">
+                            <Button.ContextMenu>
+                                <ContextMenu ItemContainerTemplateSelector="{StaticResource MenuSelector}"
+                                             ItemsSource="{Binding DefaultDeviceMenu}"
+                                             Theme:Options.Source="System"
+                                             UsesItemContainerTemplate="True" />
+                            </Button.ContextMenu>
+                        </Button>
+                        <Button x:Name="SettingsButton"
+                                AutomationProperties.Name="{x:Static resx:Resources.SettingsWindowText}"
+                                Command="{Binding OpenSettings}"
+                                Content="&#xE71D;"
+                                IsTabStop="True"
+                                Style="{StaticResource CaptionButtonStyle}"
+                                ToolTipService.ToolTip="{x:Static resx:Resources.SettingsWindowText}" />
+                    </StackPanel>
+                </Grid>
+
+                <Border Grid.Row="1" VerticalAlignment="Center" Theme:Brush.Background="FlyoutBackground">
                     <Border.Style>
                         <Style TargetType="Border">
                             <Setter Property="Visibility" Value="Collapsed" />
@@ -63,7 +93,7 @@
                                Text="{x:Static resx:Resources.NoDevicesPanelContent}"
                                TextWrapping="Wrap" />
                 </Border>
-                <Grid>
+                <Grid Grid.Row="1">
                     <Grid.Style>
                         <Style TargetType="Grid">
                             <Style.Triggers>

@@ -6,6 +6,8 @@ using EarTrumpet.UI.ViewModels;
 using System;
 using System.Diagnostics;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 
 namespace EarTrumpet.UI.Views
 {
@@ -88,6 +90,14 @@ namespace EarTrumpet.UI.Views
                     });
                     break;
             }
+        }
+
+        private void OnDefaultDeviceButtonClick(object sender, RoutedEventArgs e)
+        {
+            var button = (Button)sender;
+            button.ContextMenu.PlacementTarget = button;
+            button.ContextMenu.Placement = PlacementMode.Bottom;
+            button.ContextMenu.IsOpen = true;
         }
 
         private void OnWindowsSizeInvalidated(object sender, object e)
