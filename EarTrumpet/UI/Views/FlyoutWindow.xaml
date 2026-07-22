@@ -36,6 +36,12 @@
             <Setter Property="Focusable" Value="False" />
             <Setter Property="Margin" Value="0" />
         </Style>
+        <Style x:Key="FlyoutHeaderButtonStyle"
+               BasedOn="{StaticResource CaptionButtonStyle}"
+               TargetType="{x:Type Button}">
+            <Setter Property="Height" Value="{DynamicResource Mutable_DeviceTitleCellHeight}" />
+            <Setter Property="FontSize" Value="14" />
+        </Style>
         <DataTemplate DataType="{x:Type vm:DeviceViewModel}">
             <views:DeviceView Width="{StaticResource WindowAndItemSize}"
                               Device="{Binding}"
@@ -51,16 +57,19 @@
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Row="0" Height="{DynamicResource Mutable_DeviceTitleCellHeight}">
-                    <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                    <StackPanel Margin="0,0,6,0"
+                                HorizontalAlignment="Right"
+                                Orientation="Horizontal">
                         <Button x:Name="DefaultDeviceButton"
                                 AutomationProperties.Name="{x:Static resx:Resources.SelectDefaultDeviceAccessibleText}"
                                 Click="OnDefaultDeviceButtonClick"
                                 Content="&#xE995;"
                                 IsTabStop="True"
-                                Style="{StaticResource CaptionButtonStyle}"
+                                Style="{StaticResource FlyoutHeaderButtonStyle}"
                                 ToolTipService.ToolTip="{x:Static resx:Resources.SelectDefaultDeviceAccessibleText}">
                             <Button.ContextMenu>
-                                <ContextMenu ItemContainerTemplateSelector="{StaticResource MenuSelector}"
+                                <ContextMenu FontFamily="{DynamicResource {x:Static SystemFonts.MessageFontFamilyKey}}"
+                                             ItemContainerTemplateSelector="{StaticResource MenuSelector}"
                                              ItemsSource="{Binding DefaultDeviceMenu}"
                                              Theme:Options.Source="System"
                                              UsesItemContainerTemplate="True" />
@@ -69,9 +78,9 @@
                         <Button x:Name="SettingsButton"
                                 AutomationProperties.Name="{x:Static resx:Resources.SettingsWindowText}"
                                 Command="{Binding OpenSettings}"
-                                Content="&#xE71D;"
+                                Content="&#xE946;"
                                 IsTabStop="True"
-                                Style="{StaticResource CaptionButtonStyle}"
+                                Style="{StaticResource FlyoutHeaderButtonStyle}"
                                 ToolTipService.ToolTip="{x:Static resx:Resources.SettingsWindowText}" />
                     </StackPanel>
                 </Grid>
