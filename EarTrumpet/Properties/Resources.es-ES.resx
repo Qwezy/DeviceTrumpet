@@ -136,7 +136,7 @@
     <value>Parece que no tienes dispositivos de reproducción.</value>
   </data>
   <data name="NoDeviceTrayText" xml:space="preserve">
-    <value>EarTrumpet: No hay dispositivos de reproducción</value>
+    <value>DeviceTrumpet: No hay dispositivos de reproducción</value>
   </data>
   <data name="PlaybackDevicesText" xml:space="preserve">
     <value>Dispositivos de reproducción</value>
@@ -238,7 +238,7 @@
     <value>Configurar atajos y obtener ayuda</value>
   </data>
   <data name="SettingsTitle" xml:space="preserve">
-    <value>Ajustes de EarTrumpet</value>
+    <value>Ajustes de DeviceTrumpet</value>
   </data>
   <data name="ShortcutsPageText" xml:space="preserve">
     <value>Atajos</value>
@@ -277,10 +277,10 @@
     <value>Cerrar</value>
   </data>
   <data name="WelcomeDialogHeaderText" xml:space="preserve">
-    <value>Bienvenido a EarTrumpet</value>
+    <value>Bienvenido a DeviceTrumpet</value>
   </data>
   <data name="CriticalFailureDialogHeaderText" xml:space="preserve">
-    <value>EarTrumpet no pudo iniciar</value>
+    <value>DeviceTrumpet no pudo iniciar</value>
   </data>
   <data name="CriticalFailureFontLookupHelpText" xml:space="preserve">
     <value>Una fuente rota en tu sistema está previniendo el inicio de EarTrumpet.
@@ -654,9 +654,36 @@ Deseas abrir [https://eartrumpet.app/jmp/fixfonts] ahora?</value>
     <value>Ajustes del ratón</value>
   </data>
   <data name="SettingsUseScrollWheelInTray" xml:space="preserve">
-    <value>Usar la rueda de desplazamiento para cambiar el volumen al pasar por encima del icono de EarTrumpet</value>
+    <value>Usar la rueda de desplazamiento para cambiar el volumen al pasar por encima del icono de DeviceTrumpet</value>
   </data>
   <data name="SettingsUseGlobalMouseWheelHook" xml:space="preserve">
     <value>Usar la rueda de desplazamiento para cambiar el volumen mientras el control flotante está abierto</value>
+  </data>
+  <data name="AboutCategoryDescriptionText" xml:space="preserve">
+    <value>Versión, enlaces y diagnóstico</value>
+  </data>
+  <data name="DefaultDeviceLabelText" xml:space="preserve">
+    <value>Dispositivo predeterminado</value>
+  </data>
+  <data name="SelectDefaultDeviceAccessibleText" xml:space="preserve">
+    <value>Seleccionar dispositivo predeterminado</value>
+  </data>
+  <data name="KeybindsTitle" xml:space="preserve">
+    <value>Atajos</value>
+  </data>
+  <data name="KeybindsDescriptionText" xml:space="preserve">
+    <value>Configurar atajos de teclado</value>
+  </data>
+  <data name="GeneralSettingsDescriptionText" xml:space="preserve">
+    <value>Configurar opciones de ratón, icono y volumen</value>
+  </data>
+  <data name="EarTrumpetGitHubLinkText" xml:space="preserve">
+    <value>EarTrumpet en GitHub</value>
+  </data>
+  <data name="DeviceTrumpetGitHubLinkText" xml:space="preserve">
+    <value>DeviceTrumpet en GitHub</value>
+  </data>
+  <data name="SettingsUseLogarithmicVolume" xml:space="preserve">
+    <value>Usar escala de volumen logarítmica</value>
   </data>
 </root>

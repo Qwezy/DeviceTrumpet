@@ -136,7 +136,7 @@
     <value>Não foram encontrados dispositivos de reprodução ativos.</value>
   </data>
   <data name="NoDeviceTrayText" xml:space="preserve">
-    <value>EarTrumpet: Sem dispositivos de reprodução</value>
+    <value>DeviceTrumpet: Sem dispositivos de reprodução</value>
   </data>
   <data name="PlaybackDevicesText" xml:space="preserve">
     <value>Dispositivos de reprodução</value>
@@ -238,7 +238,7 @@
     <value>Configurar atalhos e obter ajuda</value>
   </data>
   <data name="SettingsTitle" xml:space="preserve">
-    <value>Definições do EarTrumpet</value>
+    <value>Definições do DeviceTrumpet</value>
   </data>
   <data name="ShortcutsPageText" xml:space="preserve">
     <value>Atalhos</value>
@@ -277,10 +277,10 @@
     <value>Fechar</value>
   </data>
   <data name="WelcomeDialogHeaderText" xml:space="preserve">
-    <value>Bem-vindo ao EarTrumpet</value>
+    <value>Bem-vindo ao DeviceTrumpet</value>
   </data>
   <data name="CriticalFailureDialogHeaderText" xml:space="preserve">
-    <value>O EarTrumpet não conseguiu iniciar</value>
+    <value>O DeviceTrumpet não conseguiu iniciar</value>
   </data>
   <data name="CriticalFailureFontLookupHelpText" xml:space="preserve">
     <value>Existe um tipo de letra inválido no sistema que está a impedir o EarTrumpet de iniciar.
@@ -654,7 +654,7 @@ Abrir [https://eartrumpet.app/jmp/fixfonts] agora?</value>
     <value>Definições do rato</value>
   </data>
   <data name="SettingsUseScrollWheelInTray" xml:space="preserve">
-    <value>Usar a roda do rato para alterar o volume enquanto pairar sobre o ícone do EarTrumpet</value>
+    <value>Usar a roda do rato para alterar o volume enquanto pairar sobre o ícone do DeviceTrumpet</value>
   </data>
   <data name="SettingsUseGlobalMouseWheelHook" xml:space="preserve">
     <value>Usar a roda do rato para alterar o volume enquanto a lista de opções estiver aberta</value>
@@ -667,5 +667,29 @@ Abrir [https://eartrumpet.app/jmp/fixfonts] agora?</value>
     <value>Usar escala de volume logarítmica</value>
     <comment>Community setting: Changes the volume slider value scale to/from linear and logarithmic scale.
 </comment>
+  </data>
+  <data name="AboutCategoryDescriptionText" xml:space="preserve">
+    <value>Versão, ligações e diagnóstico</value>
+  </data>
+  <data name="DefaultDeviceLabelText" xml:space="preserve">
+    <value>Dispositivo predefinido</value>
+  </data>
+  <data name="SelectDefaultDeviceAccessibleText" xml:space="preserve">
+    <value>Selecionar dispositivo predefinido</value>
+  </data>
+  <data name="KeybindsTitle" xml:space="preserve">
+    <value>Atalhos</value>
+  </data>
+  <data name="KeybindsDescriptionText" xml:space="preserve">
+    <value>Configurar atalhos de teclado</value>
+  </data>
+  <data name="GeneralSettingsDescriptionText" xml:space="preserve">
+    <value>Configurar opções de rato, ícone e volume</value>
+  </data>
+  <data name="EarTrumpetGitHubLinkText" xml:space="preserve">
+    <value>EarTrumpet no GitHub</value>
+  </data>
+  <data name="DeviceTrumpetGitHubLinkText" xml:space="preserve">
+    <value>DeviceTrumpet no GitHub</value>
   </data>
 </root>

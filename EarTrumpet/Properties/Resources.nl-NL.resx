@@ -136,7 +136,7 @@
     <value>Het lijkt erop dat je geen afspeelapparaten hebt.</value>
   </data>
   <data name="NoDeviceTrayText" xml:space="preserve">
-    <value>EarTrumpet: Geen afspeelapparaten</value>
+    <value>DeviceTrumpet: Geen afspeelapparaten</value>
   </data>
   <data name="PlaybackDevicesText" xml:space="preserve">
     <value>Afspeelapparaten</value>
@@ -238,7 +238,7 @@
     <value>Configureer sneltoetsen en Help</value>
   </data>
   <data name="SettingsTitle" xml:space="preserve">
-    <value>EarTrumpet-instellingen</value>
+    <value>DeviceTrumpet-instellingen</value>
   </data>
   <data name="ShortcutsPageText" xml:space="preserve">
     <value>Sneltoetsen</value>
@@ -277,10 +277,10 @@
     <value>Sluiten</value>
   </data>
   <data name="WelcomeDialogHeaderText" xml:space="preserve">
-    <value>Welkom bij EarTrumpet</value>
+    <value>Welkom bij DeviceTrumpet</value>
   </data>
   <data name="CriticalFailureDialogHeaderText" xml:space="preserve">
-    <value>EarTrumpet kan niet worden gestart</value>
+    <value>DeviceTrumpet kan niet worden gestart</value>
   </data>
   <data name="CriticalFailureFontLookupHelpText" xml:space="preserve">
     <value>Een lettertype veroorzaakt een probleem waardoor EarTrumpet niet kan worden gestart.
@@ -654,7 +654,7 @@ Wil je [https://eartrumpet.app/jmp/fixfonts] openen om het probleem op te lossen
     <value>Muisinstellingen</value>
   </data>
   <data name="SettingsUseScrollWheelInTray" xml:space="preserve">
-    <value>Gebruik het scrollwiel om volume te veranderen terwijl de muisaanwijzer boven het EarTrumpet-icoon staat</value>
+    <value>Gebruik het scrollwiel om volume te veranderen terwijl de muisaanwijzer boven het DeviceTrumpet-icoon staat</value>
   </data>
   <data name="SettingsUseGlobalMouseWheelHook" xml:space="preserve">
     <value>Gebruik het scrollwiel om volume te veranderen wanneer uitklapmenu open is</value>
@@ -667,5 +667,29 @@ Wil je [https://eartrumpet.app/jmp/fixfonts] openen om het probleem op te lossen
     <value>Gebruik logaritmische volumeschaal</value>
     <comment>Community setting: Changes the volume slider value scale to/from linear and logarithmic scale.
 </comment>
+  </data>
+  <data name="AboutCategoryDescriptionText" xml:space="preserve">
+    <value>Versie, links en diagnostiek</value>
+  </data>
+  <data name="DefaultDeviceLabelText" xml:space="preserve">
+    <value>Standaardapparaat</value>
+  </data>
+  <data name="SelectDefaultDeviceAccessibleText" xml:space="preserve">
+    <value>Standaardapparaat selecteren</value>
+  </data>
+  <data name="KeybindsTitle" xml:space="preserve">
+    <value>Sneltoetsen</value>
+  </data>
+  <data name="KeybindsDescriptionText" xml:space="preserve">
+    <value>Sneltoetsen instellen</value>
+  </data>
+  <data name="GeneralSettingsDescriptionText" xml:space="preserve">
+    <value>Muis-, pictogram- en volumeopties instellen</value>
+  </data>
+  <data name="EarTrumpetGitHubLinkText" xml:space="preserve">
+    <value>EarTrumpet op GitHub</value>
+  </data>
+  <data name="DeviceTrumpetGitHubLinkText" xml:space="preserve">
+    <value>DeviceTrumpet op GitHub</value>
   </data>
 </root>

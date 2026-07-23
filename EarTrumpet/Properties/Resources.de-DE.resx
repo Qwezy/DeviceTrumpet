@@ -136,7 +136,7 @@
     <value>Es sind keine Wiedergabegeräte vorhanden.</value>
   </data>
   <data name="NoDeviceTrayText" xml:space="preserve">
-    <value>EarTrumpet: Keine Wiedergabegeräte</value>
+    <value>DeviceTrumpet: Keine Wiedergabegeräte</value>
   </data>
   <data name="PlaybackDevicesText" xml:space="preserve">
     <value>Wiedergabegeräte</value>
@@ -238,7 +238,7 @@
     <value>Tastenkombinationen und Hilfe</value>
   </data>
   <data name="SettingsTitle" xml:space="preserve">
-    <value>EarTrumpet-Einstellungen</value>
+    <value>DeviceTrumpet-Einstellungen</value>
   </data>
   <data name="ShortcutsPageText" xml:space="preserve">
     <value>Tastenkombinationen</value>
@@ -277,10 +277,10 @@
     <value>Schließen</value>
   </data>
   <data name="WelcomeDialogHeaderText" xml:space="preserve">
-    <value>Willkommen bei EarTrumpet</value>
+    <value>Willkommen bei DeviceTrumpet</value>
   </data>
   <data name="CriticalFailureDialogHeaderText" xml:space="preserve">
-    <value>EarTrumpet konnte nicht gestartet werden</value>
+    <value>DeviceTrumpet konnte nicht gestartet werden</value>
   </data>
   <data name="CriticalFailureFontLookupHelpText" xml:space="preserve">
     <value>Eine defekte Schriftart in Ihrem System verhindert den Start von EarTrumpet. 
@@ -654,9 +654,36 @@ Möchten Sie [https://eartrumpet.app/jmp/fixfonts] öffnen?</value>
     <value>Mauseinstellungen</value>
   </data>
   <data name="SettingsUseScrollWheelInTray" xml:space="preserve">
-    <value>Benutze das Scrollrad um die Lautstärke zu ändern, während du mit dem Mausrad über das EarTrumpet-Symbol fährst</value>
+    <value>Benutze das Scrollrad um die Lautstärke zu ändern, während du mit dem Mausrad über das DeviceTrumpet-Symbol fährst</value>
   </data>
   <data name="SettingsUseGlobalMouseWheelHook" xml:space="preserve">
     <value>Benutze das Scrollrad um Lautstärke zu ändern, während das Flyout geöffnet ist</value>
+  </data>
+  <data name="AboutCategoryDescriptionText" xml:space="preserve">
+    <value>Version, Links und Diagnose</value>
+  </data>
+  <data name="DefaultDeviceLabelText" xml:space="preserve">
+    <value>Standardgerät</value>
+  </data>
+  <data name="SelectDefaultDeviceAccessibleText" xml:space="preserve">
+    <value>Standardgerät auswählen</value>
+  </data>
+  <data name="KeybindsTitle" xml:space="preserve">
+    <value>Tastenkürzel</value>
+  </data>
+  <data name="KeybindsDescriptionText" xml:space="preserve">
+    <value>Tastenkombinationen konfigurieren</value>
+  </data>
+  <data name="GeneralSettingsDescriptionText" xml:space="preserve">
+    <value>Maus-, Symbol- und Lautstärkeoptionen konfigurieren</value>
+  </data>
+  <data name="EarTrumpetGitHubLinkText" xml:space="preserve">
+    <value>EarTrumpet auf GitHub</value>
+  </data>
+  <data name="DeviceTrumpetGitHubLinkText" xml:space="preserve">
+    <value>DeviceTrumpet auf GitHub</value>
+  </data>
+  <data name="SettingsUseLogarithmicVolume" xml:space="preserve">
+    <value>Logarithmische Lautstärkeskala verwenden</value>
   </data>
 </root>

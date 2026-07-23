@@ -136,7 +136,7 @@
     <value>Não há dispositivo de reprodução disponível.</value>
   </data>
   <data name="NoDeviceTrayText" xml:space="preserve">
-    <value>EarTrumpet: Não há dispositivo de reprodução</value>
+    <value>DeviceTrumpet: Não há dispositivo de reprodução</value>
   </data>
   <data name="PlaybackDevicesText" xml:space="preserve">
     <value>Dispositivos de reprodução</value>
@@ -238,7 +238,7 @@
     <value>Configurar atalhos e pedir ajuda</value>
   </data>
   <data name="SettingsTitle" xml:space="preserve">
-    <value>Configurações do EarTrumpet</value>
+    <value>Configurações do DeviceTrumpet</value>
   </data>
   <data name="ShortcutsPageText" xml:space="preserve">
     <value>Atalhos</value>
@@ -277,10 +277,10 @@
     <value>Fechar</value>
   </data>
   <data name="WelcomeDialogHeaderText" xml:space="preserve">
-    <value>Bem-vindo ao EarTrumpet</value>
+    <value>Bem-vindo ao DeviceTrumpet</value>
   </data>
   <data name="CriticalFailureDialogHeaderText" xml:space="preserve">
-    <value>O EarTrumpet não pode ser iniciado</value>
+    <value>O DeviceTrumpet não pode ser iniciado</value>
   </data>
   <data name="CriticalFailureFontLookupHelpText" xml:space="preserve">
     <value>Uma fonte danificada no sistema está impedindo a execução do EarTrumpet.
@@ -654,7 +654,7 @@ Deseja abrir [https://eartrumpet.app/jmp/fixfonts] agora?</value>
     <value>Configurações do Mouse</value>
   </data>
   <data name="SettingsUseScrollWheelInTray" xml:space="preserve">
-    <value>Use a roda de rolagem para alterar o volume enquanto estiver pairando sobre o ícone do EarTrumpet</value>
+    <value>Use a roda de rolagem para alterar o volume enquanto estiver pairando sobre o ícone do DeviceTrumpet</value>
   </data>
   <data name="SettingsUseGlobalMouseWheelHook" xml:space="preserve">
     <value>Use a roda de rolagem para alterar o volume enquanto o submenu estiver aberto</value>
@@ -667,5 +667,29 @@ Deseja abrir [https://eartrumpet.app/jmp/fixfonts] agora?</value>
     <value>Usar a escala de volume logarítmica</value>
     <comment>Community setting: Changes the volume slider value scale to/from linear and logarithmic scale.
 </comment>
+  </data>
+  <data name="AboutCategoryDescriptionText" xml:space="preserve">
+    <value>Versão, links e diagnóstico</value>
+  </data>
+  <data name="DefaultDeviceLabelText" xml:space="preserve">
+    <value>Dispositivo padrão</value>
+  </data>
+  <data name="SelectDefaultDeviceAccessibleText" xml:space="preserve">
+    <value>Selecionar dispositivo padrão</value>
+  </data>
+  <data name="KeybindsTitle" xml:space="preserve">
+    <value>Atalhos</value>
+  </data>
+  <data name="KeybindsDescriptionText" xml:space="preserve">
+    <value>Configurar atalhos de teclado</value>
+  </data>
+  <data name="GeneralSettingsDescriptionText" xml:space="preserve">
+    <value>Configurar opções de mouse, ícone e volume</value>
+  </data>
+  <data name="EarTrumpetGitHubLinkText" xml:space="preserve">
+    <value>EarTrumpet no GitHub</value>
+  </data>
+  <data name="DeviceTrumpetGitHubLinkText" xml:space="preserve">
+    <value>DeviceTrumpet no GitHub</value>
   </data>
 </root>

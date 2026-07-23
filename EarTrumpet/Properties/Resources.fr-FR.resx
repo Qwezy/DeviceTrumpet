@@ -136,7 +136,7 @@
     <value>Il semblerait que vous n’ayez aucun périphérique de lecture.</value>
   </data>
   <data name="NoDeviceTrayText" xml:space="preserve">
-    <value>EarTrumpet: Aucun périphérique de lecture</value>
+    <value>DeviceTrumpet: Aucun périphérique de lecture</value>
   </data>
   <data name="PlaybackDevicesText" xml:space="preserve">
     <value>Périphériques de lecture</value>
@@ -238,7 +238,7 @@
     <value>Configurer les raccourcis et obtenir de l'aide</value>
   </data>
   <data name="SettingsTitle" xml:space="preserve">
-    <value>EarTrumpet</value>
+    <value>DeviceTrumpet</value>
   </data>
   <data name="ShortcutsPageText" xml:space="preserve">
     <value>Raccourcis</value>
@@ -277,10 +277,10 @@
     <value>Fermer</value>
   </data>
   <data name="WelcomeDialogHeaderText" xml:space="preserve">
-    <value>Bienvenue à EarTrumpet</value>
+    <value>Bienvenue à DeviceTrumpet</value>
   </data>
   <data name="CriticalFailureDialogHeaderText" xml:space="preserve">
-    <value>EarTrumpet n'a pas pu démarrer</value>
+    <value>DeviceTrumpet n'a pas pu démarrer</value>
   </data>
   <data name="CriticalFailureFontLookupHelpText" xml:space="preserve">
     <value>Une police de caractères défectueuse empêche EarTrumpet de démarrer.
@@ -654,7 +654,7 @@ Voulez-vous ouvrir [https://eartrumpet.app/jmp/fixfonts] maintenant?</value>
     <value>Paramètres de la souris</value>
   </data>
   <data name="SettingsUseScrollWheelInTray" xml:space="preserve">
-    <value>Utiliser la molette de la souris pour modifier le volume lorsque votre curseur survole l'icône de EarTrumpet</value>
+    <value>Utiliser la molette de la souris pour modifier le volume lorsque votre curseur survole l'icône de DeviceTrumpet</value>
   </data>
   <data name="SettingsUseGlobalMouseWheelHook" xml:space="preserve">
     <value>Utiliser la molette de la souris pour changer le volume quand l'interface est ouverte</value>
@@ -667,5 +667,29 @@ Voulez-vous ouvrir [https://eartrumpet.app/jmp/fixfonts] maintenant?</value>
     <value>Utiliser l'échelle de volume logarithmique</value>
     <comment>Community setting: Changes the volume slider value scale to/from linear and logarithmic scale.
 </comment>
+  </data>
+  <data name="AboutCategoryDescriptionText" xml:space="preserve">
+    <value>Version, liens et diagnostics</value>
+  </data>
+  <data name="DefaultDeviceLabelText" xml:space="preserve">
+    <value>Périphérique par défaut</value>
+  </data>
+  <data name="SelectDefaultDeviceAccessibleText" xml:space="preserve">
+    <value>Sélectionner le périphérique par défaut</value>
+  </data>
+  <data name="KeybindsTitle" xml:space="preserve">
+    <value>Raccourcis</value>
+  </data>
+  <data name="KeybindsDescriptionText" xml:space="preserve">
+    <value>Configurer les raccourcis clavier</value>
+  </data>
+  <data name="GeneralSettingsDescriptionText" xml:space="preserve">
+    <value>Configurer les options de souris, d'icône et de volume</value>
+  </data>
+  <data name="EarTrumpetGitHubLinkText" xml:space="preserve">
+    <value>EarTrumpet sur GitHub</value>
+  </data>
+  <data name="DeviceTrumpetGitHubLinkText" xml:space="preserve">
+    <value>DeviceTrumpet sur GitHub</value>
   </data>
 </root>

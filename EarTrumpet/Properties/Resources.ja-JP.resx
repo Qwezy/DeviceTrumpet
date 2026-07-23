@@ -136,7 +136,7 @@
     <value>再生デバイスが接続されてないようです。</value>
   </data>
   <data name="NoDeviceTrayText" xml:space="preserve">
-    <value>EarTrumpet: 再生デバイスなし</value>
+    <value>DeviceTrumpet: 再生デバイスなし</value>
   </data>
   <data name="PlaybackDevicesText" xml:space="preserve">
     <value>再生デバイス</value>
@@ -238,7 +238,7 @@
     <value>ショートカットの設定やヘルプ</value>
   </data>
   <data name="SettingsTitle" xml:space="preserve">
-    <value>EarTrumpet 設定</value>
+    <value>DeviceTrumpet 設定</value>
   </data>
   <data name="ShortcutsPageText" xml:space="preserve">
     <value>ショートカット</value>
@@ -277,10 +277,10 @@
     <value>閉じる</value>
   </data>
   <data name="WelcomeDialogHeaderText" xml:space="preserve">
-    <value>EarTrumpet へようこそ</value>
+    <value>DeviceTrumpet へようこそ</value>
   </data>
   <data name="CriticalFailureDialogHeaderText" xml:space="preserve">
-    <value>EarTrumpetの起動に失敗しました</value>
+    <value>DeviceTrumpetの起動に失敗しました</value>
   </data>
   <data name="CriticalFailureFontLookupHelpText" xml:space="preserve">
     <value>システム上の破損したフォントがEarTrumpet の起動を妨げています。
@@ -643,5 +643,44 @@
   </data>
   <data name="SettingsAbsoluteVolumeUpText" xml:space="preserve">
     <value>すべてのデバイスの音量を上げる</value>
+  </data>
+  <data name="AboutCategoryDescriptionText" xml:space="preserve">
+    <value>バージョン、リンク、診断</value>
+  </data>
+  <data name="DefaultDeviceLabelText" xml:space="preserve">
+    <value>既定のデバイス</value>
+  </data>
+  <data name="SelectDefaultDeviceAccessibleText" xml:space="preserve">
+    <value>既定のデバイスを選択</value>
+  </data>
+  <data name="KeybindsTitle" xml:space="preserve">
+    <value>ショートカット</value>
+  </data>
+  <data name="KeybindsDescriptionText" xml:space="preserve">
+    <value>キーボードショートカットを設定</value>
+  </data>
+  <data name="GeneralSettingsDescriptionText" xml:space="preserve">
+    <value>マウス、アイコン、音量のオプションを設定</value>
+  </data>
+  <data name="EarTrumpetGitHubLinkText" xml:space="preserve">
+    <value>GitHub の EarTrumpet</value>
+  </data>
+  <data name="DeviceTrumpetGitHubLinkText" xml:space="preserve">
+    <value>GitHub の DeviceTrumpet</value>
+  </data>
+  <data name="SettingsUseLogarithmicVolume" xml:space="preserve">
+    <value>対数音量スケールを使用する</value>
+  </data>
+  <data name="OpenAppsVolume_Windows10_Text" xml:space="preserve">
+    <value>アプリの音量とデバイスの基本設定</value>
+  </data>
+  <data name="OpenAppsVolume_Windows11_Text" xml:space="preserve">
+    <value>音量ミキサー</value>
+  </data>
+  <data name="SettingsUseGlobalMouseWheelHook" xml:space="preserve">
+    <value>フライアウトが開いているときにスクロールホイールで音量を変更する</value>
+  </data>
+  <data name="SettingsUseScrollWheelInTray" xml:space="preserve">
+    <value>DeviceTrumpet アイコンにカーソルを合わせているときにスクロールホイールで音量を変更する</value>
   </data>
 </root>

@@ -136,7 +136,7 @@
     <value>您似乎沒有任何播放裝置。</value>
   </data>
   <data name="NoDeviceTrayText" xml:space="preserve">
-    <value>EarTrumpet：沒有可播放音效的裝置</value>
+    <value>DeviceTrumpet：沒有可播放音效的裝置</value>
   </data>
   <data name="PlaybackDevicesText" xml:space="preserve">
     <value>播放裝置</value>
@@ -238,7 +238,7 @@
     <value>設定捷徑並尋求幫助</value>
   </data>
   <data name="SettingsTitle" xml:space="preserve">
-    <value>EarTrumpet 設定</value>
+    <value>DeviceTrumpet 設定</value>
   </data>
   <data name="ShortcutsPageText" xml:space="preserve">
     <value>捷徑</value>
@@ -277,10 +277,10 @@
     <value>關閉</value>
   </data>
   <data name="WelcomeDialogHeaderText" xml:space="preserve">
-    <value>歡迎使用 EarTrumpet</value>
+    <value>歡迎使用 DeviceTrumpet</value>
   </data>
   <data name="CriticalFailureDialogHeaderText" xml:space="preserve">
-    <value>無法啟動 EarTrumpet</value>
+    <value>無法啟動 DeviceTrumpet</value>
   </data>
   <data name="CriticalFailureFontLookupHelpText" xml:space="preserve">
     <value>您的系統中有字型檔案毀損，造成 EarTrumpet 無法啟動。
@@ -643,5 +643,44 @@
   </data>
   <data name="SettingsAbsoluteVolumeUpText" xml:space="preserve">
     <value>提高所有裝置的音量</value>
+  </data>
+  <data name="AboutCategoryDescriptionText" xml:space="preserve">
+    <value>版本、連結和診斷</value>
+  </data>
+  <data name="DefaultDeviceLabelText" xml:space="preserve">
+    <value>預設裝置</value>
+  </data>
+  <data name="SelectDefaultDeviceAccessibleText" xml:space="preserve">
+    <value>選擇預設裝置</value>
+  </data>
+  <data name="KeybindsTitle" xml:space="preserve">
+    <value>快速鍵</value>
+  </data>
+  <data name="KeybindsDescriptionText" xml:space="preserve">
+    <value>設定鍵盤快速鍵</value>
+  </data>
+  <data name="GeneralSettingsDescriptionText" xml:space="preserve">
+    <value>設定滑鼠、圖示和音量選項</value>
+  </data>
+  <data name="EarTrumpetGitHubLinkText" xml:space="preserve">
+    <value>GitHub 上的 EarTrumpet</value>
+  </data>
+  <data name="DeviceTrumpetGitHubLinkText" xml:space="preserve">
+    <value>GitHub 上的 DeviceTrumpet</value>
+  </data>
+  <data name="SettingsUseLogarithmicVolume" xml:space="preserve">
+    <value>使用對數音量刻度</value>
+  </data>
+  <data name="OpenAppsVolume_Windows10_Text" xml:space="preserve">
+    <value>應用程式音量與裝置喜好設定</value>
+  </data>
+  <data name="OpenAppsVolume_Windows11_Text" xml:space="preserve">
+    <value>音量混音器</value>
+  </data>
+  <data name="SettingsUseGlobalMouseWheelHook" xml:space="preserve">
+    <value>當快顯視窗開啟時使用捲動滾輪變更音量</value>
+  </data>
+  <data name="SettingsUseScrollWheelInTray" xml:space="preserve">
+    <value>將滑鼠停留在 DeviceTrumpet 圖示上時使用捲動滾輪變更音量</value>
   </data>
 </root>

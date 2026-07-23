@@ -136,7 +136,7 @@
     <value>Не похоже, что у вас есть какое-либо устройство воспроизведения.</value>
   </data>
   <data name="NoDeviceTrayText" xml:space="preserve">
-    <value>EarTrumpet: нет устройств воспроизведения</value>
+    <value>DeviceTrumpet: нет устройств воспроизведения</value>
   </data>
   <data name="PlaybackDevicesText" xml:space="preserve">
     <value>Устройства воспроизведения</value>
@@ -238,7 +238,7 @@
     <value>Настроить сочетания клавиш и получить справку</value>
   </data>
   <data name="SettingsTitle" xml:space="preserve">
-    <value>Параметры EarTrumpet</value>
+    <value>Параметры DeviceTrumpet</value>
   </data>
   <data name="ShortcutsPageText" xml:space="preserve">
     <value>Сочетания клавиш</value>
@@ -277,10 +277,10 @@
     <value>Закрыть</value>
   </data>
   <data name="WelcomeDialogHeaderText" xml:space="preserve">
-    <value>Добро пожаловать в EarTrumpet</value>
+    <value>Добро пожаловать в DeviceTrumpet</value>
   </data>
   <data name="CriticalFailureDialogHeaderText" xml:space="preserve">
-    <value>Произошла ошибка при запуске EarTrumpet</value>
+    <value>Произошла ошибка при запуске DeviceTrumpet</value>
   </data>
   <data name="CriticalFailureFontLookupHelpText" xml:space="preserve">
     <value>Невозможно запустить EarTrumpet, так как один из шрифтов используемый этой программой повреждён.
@@ -654,7 +654,7 @@
     <value>Параметры мыши</value>
   </data>
   <data name="SettingsUseScrollWheelInTray" xml:space="preserve">
-    <value>Использовать колесо прокрутки для изменения громкости при наведении на иконку EarTrumpet</value>
+    <value>Использовать колесо прокрутки для изменения громкости при наведении на иконку DeviceTrumpet</value>
   </data>
   <data name="SettingsUseGlobalMouseWheelHook" xml:space="preserve">
     <value>Использовать колесо прокрутки для изменения громкости при открытом всплывающем окне</value>
@@ -667,5 +667,29 @@
     <value>Использовать логарифмическую шкалу громкости</value>
     <comment>Community setting: Changes the volume slider value scale to/from linear and logarithmic scale.
 </comment>
+  </data>
+  <data name="AboutCategoryDescriptionText" xml:space="preserve">
+    <value>Версия, ссылки и диагностика</value>
+  </data>
+  <data name="DefaultDeviceLabelText" xml:space="preserve">
+    <value>Устройство по умолчанию</value>
+  </data>
+  <data name="SelectDefaultDeviceAccessibleText" xml:space="preserve">
+    <value>Выбрать устройство по умолчанию</value>
+  </data>
+  <data name="KeybindsTitle" xml:space="preserve">
+    <value>Сочетания клавиш</value>
+  </data>
+  <data name="KeybindsDescriptionText" xml:space="preserve">
+    <value>Настройка сочетаний клавиш</value>
+  </data>
+  <data name="GeneralSettingsDescriptionText" xml:space="preserve">
+    <value>Настройка параметров мыши, значка и громкости</value>
+  </data>
+  <data name="EarTrumpetGitHubLinkText" xml:space="preserve">
+    <value>EarTrumpet на GitHub</value>
+  </data>
+  <data name="DeviceTrumpetGitHubLinkText" xml:space="preserve">
+    <value>DeviceTrumpet на GitHub</value>
   </data>
 </root>

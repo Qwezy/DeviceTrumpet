@@ -136,7 +136,7 @@
     <value>Wygląda na to, że nie masz żadnych urządzeń odtwarzających.</value>
   </data>
   <data name="NoDeviceTrayText" xml:space="preserve">
-    <value>EarTrumpet: Brak urządzeń odtwarzających</value>
+    <value>DeviceTrumpet: Brak urządzeń odtwarzających</value>
   </data>
   <data name="PlaybackDevicesText" xml:space="preserve">
     <value>Urządzenia odtwarzające</value>
@@ -238,7 +238,7 @@
     <value>Skonfiguruj skróty i uzyskaj pomoc</value>
   </data>
   <data name="SettingsTitle" xml:space="preserve">
-    <value>Ustawienia aplikacji EarTrumpet</value>
+    <value>Ustawienia aplikacji DeviceTrumpet</value>
   </data>
   <data name="ShortcutsPageText" xml:space="preserve">
     <value>Skróty</value>
@@ -277,10 +277,10 @@
     <value>Zamknij</value>
   </data>
   <data name="WelcomeDialogHeaderText" xml:space="preserve">
-    <value>Witaj w EarTrumpet</value>
+    <value>Witaj w DeviceTrumpet</value>
   </data>
   <data name="CriticalFailureDialogHeaderText" xml:space="preserve">
-    <value>Nie udało się uruchomić EarTrumpet</value>
+    <value>Nie udało się uruchomić DeviceTrumpet</value>
   </data>
   <data name="CriticalFailureFontLookupHelpText" xml:space="preserve">
     <value>EarTrumpet nie może zostać uruchomiony na Twoim komputerze z powodu uszkodzonych plików czcionek.
@@ -654,7 +654,7 @@ Otworzyć [https://eartrumpet.app/jmp/fixfonts] teraz?</value>
     <value>Ustawienia myszy</value>
   </data>
   <data name="SettingsUseScrollWheelInTray" xml:space="preserve">
-    <value>Użyj kółka przewijania, aby zmienić głośność, gdy kursor myszy znajduje się nad ikoną EarTrumpet</value>
+    <value>Użyj kółka przewijania, aby zmienić głośność, gdy kursor myszy znajduje się nad ikoną DeviceTrumpet</value>
   </data>
   <data name="SettingsUseGlobalMouseWheelHook" xml:space="preserve">
     <value>Użyj koła przewijania, aby zmienić głośność, gdy otwarte są ustawienia w zasobniku systemowym</value>
@@ -667,5 +667,29 @@ Otworzyć [https://eartrumpet.app/jmp/fixfonts] teraz?</value>
     <value>Użyj logarytmicznej skali głośności</value>
     <comment>Community setting: Changes the volume slider value scale to/from linear and logarithmic scale.
 </comment>
+  </data>
+  <data name="AboutCategoryDescriptionText" xml:space="preserve">
+    <value>Wersja, odnośniki i diagnostyka</value>
+  </data>
+  <data name="DefaultDeviceLabelText" xml:space="preserve">
+    <value>Urządzenie domyślne</value>
+  </data>
+  <data name="SelectDefaultDeviceAccessibleText" xml:space="preserve">
+    <value>Wybierz urządzenie domyślne</value>
+  </data>
+  <data name="KeybindsTitle" xml:space="preserve">
+    <value>Skróty klawiszowe</value>
+  </data>
+  <data name="KeybindsDescriptionText" xml:space="preserve">
+    <value>Konfiguracja skrótów klawiszowych</value>
+  </data>
+  <data name="GeneralSettingsDescriptionText" xml:space="preserve">
+    <value>Konfiguracja opcji myszy, ikony i głośności</value>
+  </data>
+  <data name="EarTrumpetGitHubLinkText" xml:space="preserve">
+    <value>EarTrumpet na GitHub</value>
+  </data>
+  <data name="DeviceTrumpetGitHubLinkText" xml:space="preserve">
+    <value>DeviceTrumpet na GitHub</value>
   </data>
 </root>

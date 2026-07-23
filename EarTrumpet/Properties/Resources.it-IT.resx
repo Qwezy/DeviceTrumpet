@@ -136,7 +136,7 @@
     <value>Sembra che tu non abbia alcun dispositivo di riproduzione.</value>
   </data>
   <data name="NoDeviceTrayText" xml:space="preserve">
-    <value>EarTrumpet: Nessun dispositivo di riproduzione</value>
+    <value>DeviceTrumpet: Nessun dispositivo di riproduzione</value>
   </data>
   <data name="PlaybackDevicesText" xml:space="preserve">
     <value>Dispositivi di riproduzione</value>
@@ -238,7 +238,7 @@
     <value>Configura le scorciatoie e ottieni aiuto</value>
   </data>
   <data name="SettingsTitle" xml:space="preserve">
-    <value>Impostazioni EarTrumpet</value>
+    <value>Impostazioni DeviceTrumpet</value>
   </data>
   <data name="ShortcutsPageText" xml:space="preserve">
     <value>Scorciatoie</value>
@@ -277,10 +277,10 @@
     <value>Chiudi</value>
   </data>
   <data name="WelcomeDialogHeaderText" xml:space="preserve">
-    <value>Benvenuto su EarTrumpet</value>
+    <value>Benvenuto su DeviceTrumpet</value>
   </data>
   <data name="CriticalFailureDialogHeaderText" xml:space="preserve">
-    <value>Avvio di EarTrumpet non riuscito</value>
+    <value>Avvio di DeviceTrumpet non riuscito</value>
   </data>
   <data name="CriticalFailureFontLookupHelpText" xml:space="preserve">
     <value>Un font corrotto nel tuo sistema impedisce l'avvio di EarTrumpet.
@@ -654,7 +654,7 @@ Aprire [https://eartrumpet.app/jmp/fixfonts] ora?</value>
     <value>Impostazioni mouse</value>
   </data>
   <data name="SettingsUseScrollWheelInTray" xml:space="preserve">
-    <value>Usa la rotella di scorrimento per cambiare volume al passaggio sull'icona di EarTrumpet</value>
+    <value>Usa la rotella di scorrimento per cambiare volume al passaggio sull'icona di DeviceTrumpet</value>
   </data>
   <data name="SettingsUseGlobalMouseWheelHook" xml:space="preserve">
     <value>Usa la rotella di scorrimento per cambiare il volume mentre il riquadro a comparsa è aperto</value>
@@ -667,5 +667,29 @@ Aprire [https://eartrumpet.app/jmp/fixfonts] ora?</value>
     <value>Usa scala di volume logaritmica</value>
     <comment>Community setting: Changes the volume slider value scale to/from linear and logarithmic scale.
 </comment>
+  </data>
+  <data name="AboutCategoryDescriptionText" xml:space="preserve">
+    <value>Versione, link e diagnostica</value>
+  </data>
+  <data name="DefaultDeviceLabelText" xml:space="preserve">
+    <value>Dispositivo predefinito</value>
+  </data>
+  <data name="SelectDefaultDeviceAccessibleText" xml:space="preserve">
+    <value>Seleziona dispositivo predefinito</value>
+  </data>
+  <data name="KeybindsTitle" xml:space="preserve">
+    <value>Scorciatoie</value>
+  </data>
+  <data name="KeybindsDescriptionText" xml:space="preserve">
+    <value>Configura le scorciatoie da tastiera</value>
+  </data>
+  <data name="GeneralSettingsDescriptionText" xml:space="preserve">
+    <value>Configura le opzioni di mouse, icona e volume</value>
+  </data>
+  <data name="EarTrumpetGitHubLinkText" xml:space="preserve">
+    <value>EarTrumpet su GitHub</value>
+  </data>
+  <data name="DeviceTrumpetGitHubLinkText" xml:space="preserve">
+    <value>DeviceTrumpet su GitHub</value>
   </data>
 </root>

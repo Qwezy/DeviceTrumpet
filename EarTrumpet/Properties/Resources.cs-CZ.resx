@@ -136,7 +136,7 @@
     <value>Vypadá to, že nemáte žádná zařízení pro přehrávání.</value>
   </data>
   <data name="NoDeviceTrayText" xml:space="preserve">
-    <value>EarTrumpet: Žádná zařízení pro přehrávání</value>
+    <value>DeviceTrumpet: Žádná zařízení pro přehrávání</value>
   </data>
   <data name="PlaybackDevicesText" xml:space="preserve">
     <value>Zařízení pro přehrávání</value>
@@ -238,7 +238,7 @@
     <value>Konfigurovat klávesové zkratky a získat pomoc</value>
   </data>
   <data name="SettingsTitle" xml:space="preserve">
-    <value>Nastavení EarTrumpet</value>
+    <value>Nastavení DeviceTrumpet</value>
   </data>
   <data name="ShortcutsPageText" xml:space="preserve">
     <value>Klávesové zkratky</value>
@@ -277,10 +277,10 @@
     <value>Zavřít</value>
   </data>
   <data name="WelcomeDialogHeaderText" xml:space="preserve">
-    <value>Vítejte v EarTrumpet</value>
+    <value>Vítejte v DeviceTrumpet</value>
   </data>
   <data name="CriticalFailureDialogHeaderText" xml:space="preserve">
-    <value>EarTrumpet se nepodařilo spustit</value>
+    <value>DeviceTrumpet se nepodařilo spustit</value>
   </data>
   <data name="CriticalFailureFontLookupHelpText" xml:space="preserve">
     <value>Poškozené písmo ve vašem systému zabraňuje spuštění aplikace EarTrumpet.
@@ -643,5 +643,44 @@ Přejete si nyní otevřít [https://eartrumpet.app/jmp/fixfonts]?</value>
   </data>
   <data name="SettingsAbsoluteVolumeUpText" xml:space="preserve">
     <value>Zvýšit hlasitost pro všechna zařízení</value>
+  </data>
+  <data name="AboutCategoryDescriptionText" xml:space="preserve">
+    <value>Verze, odkazy a diagnostika</value>
+  </data>
+  <data name="DefaultDeviceLabelText" xml:space="preserve">
+    <value>Výchozí zařízení</value>
+  </data>
+  <data name="SelectDefaultDeviceAccessibleText" xml:space="preserve">
+    <value>Vybrat výchozí zařízení</value>
+  </data>
+  <data name="KeybindsTitle" xml:space="preserve">
+    <value>Klávesové zkratky</value>
+  </data>
+  <data name="KeybindsDescriptionText" xml:space="preserve">
+    <value>Nastavení klávesových zkratek</value>
+  </data>
+  <data name="GeneralSettingsDescriptionText" xml:space="preserve">
+    <value>Nastavení možností myši, ikony a hlasitosti</value>
+  </data>
+  <data name="EarTrumpetGitHubLinkText" xml:space="preserve">
+    <value>EarTrumpet na GitHubu</value>
+  </data>
+  <data name="DeviceTrumpetGitHubLinkText" xml:space="preserve">
+    <value>DeviceTrumpet na GitHubu</value>
+  </data>
+  <data name="SettingsUseLogarithmicVolume" xml:space="preserve">
+    <value>Použít logaritmickou stupnici hlasitosti</value>
+  </data>
+  <data name="OpenAppsVolume_Windows10_Text" xml:space="preserve">
+    <value>Předvolby hlasitosti aplikací a zařízení</value>
+  </data>
+  <data name="OpenAppsVolume_Windows11_Text" xml:space="preserve">
+    <value>Směšovač hlasitosti</value>
+  </data>
+  <data name="SettingsUseGlobalMouseWheelHook" xml:space="preserve">
+    <value>Použít kolečko myši ke změně hlasitosti, když je vyskakovací okno otevřené</value>
+  </data>
+  <data name="SettingsUseScrollWheelInTray" xml:space="preserve">
+    <value>Použít kolečko myši ke změně hlasitosti při najetí na ikonu DeviceTrumpet</value>
   </data>
 </root>

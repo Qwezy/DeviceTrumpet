@@ -136,7 +136,7 @@
     <value>似乎没有任何播放设备。</value>
   </data>
   <data name="NoDeviceTrayText" xml:space="preserve">
-    <value>EarTrumpet: 没有播放设备</value>
+    <value>DeviceTrumpet: 没有播放设备</value>
   </data>
   <data name="PlaybackDevicesText" xml:space="preserve">
     <value>播放设备</value>
@@ -238,7 +238,7 @@
     <value>配置快捷键与获取帮助</value>
   </data>
   <data name="SettingsTitle" xml:space="preserve">
-    <value>EarTrumpet 设置</value>
+    <value>DeviceTrumpet 设置</value>
   </data>
   <data name="ShortcutsPageText" xml:space="preserve">
     <value>快捷键</value>
@@ -277,10 +277,10 @@
     <value>关闭</value>
   </data>
   <data name="WelcomeDialogHeaderText" xml:space="preserve">
-    <value>欢迎使用 EarTrumpet</value>
+    <value>欢迎使用 DeviceTrumpet</value>
   </data>
   <data name="CriticalFailureDialogHeaderText" xml:space="preserve">
-    <value>EarTrumpet 无法启动</value>
+    <value>DeviceTrumpet 无法启动</value>
   </data>
   <data name="CriticalFailureFontLookupHelpText" xml:space="preserve">
     <value>您的系统上存在损坏的字体，使得 EarTrumpet 无法启动。
@@ -654,9 +654,36 @@
     <value>鼠标设置</value>
   </data>
   <data name="SettingsUseScrollWheelInTray" xml:space="preserve">
-    <value>鼠标指针悬停在 EarTrumpet 图标上时，使用滚轮调节音量</value>
+    <value>鼠标指针悬停在 DeviceTrumpet 图标上时，使用滚轮调节音量</value>
   </data>
   <data name="SettingsUseGlobalMouseWheelHook" xml:space="preserve">
     <value>浮出面板打开时，使用滚轮调节音量</value>
+  </data>
+  <data name="AboutCategoryDescriptionText" xml:space="preserve">
+    <value>版本、链接和诊断</value>
+  </data>
+  <data name="DefaultDeviceLabelText" xml:space="preserve">
+    <value>默认设备</value>
+  </data>
+  <data name="SelectDefaultDeviceAccessibleText" xml:space="preserve">
+    <value>选择默认设备</value>
+  </data>
+  <data name="KeybindsTitle" xml:space="preserve">
+    <value>快捷键</value>
+  </data>
+  <data name="KeybindsDescriptionText" xml:space="preserve">
+    <value>配置键盘快捷键</value>
+  </data>
+  <data name="GeneralSettingsDescriptionText" xml:space="preserve">
+    <value>配置鼠标、图标和音量选项</value>
+  </data>
+  <data name="EarTrumpetGitHubLinkText" xml:space="preserve">
+    <value>GitHub 上的 EarTrumpet</value>
+  </data>
+  <data name="DeviceTrumpetGitHubLinkText" xml:space="preserve">
+    <value>GitHub 上的 DeviceTrumpet</value>
+  </data>
+  <data name="SettingsUseLogarithmicVolume" xml:space="preserve">
+    <value>使用对数音量刻度</value>
   </data>
 </root>
