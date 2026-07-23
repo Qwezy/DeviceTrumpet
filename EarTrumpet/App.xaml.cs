@@ -291,9 +291,8 @@ namespace EarTrumpet
         {
             foreach (var device in CollectionViewModel.AllDevices.Where(d => !d.IsMuted))
             {
-                // if device is not muted but will be muted by 
+                // if device is not muted but will be muted by
                 bool wasMuted = device.IsMuted;
-                // device.IncrementVolume(-2);
                 device.Volume -= 2;
                 // if device is muted by this absolute down
                 // .IsMuted is not already updated

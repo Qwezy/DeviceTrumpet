@@ -97,7 +97,7 @@
                     <TextBlock Grid.Column="1"
                                VerticalAlignment="Center"
                                Style="{StaticResource BodyText}"
-                               Text="{Binding DefaultSettingsHotKey}" />
+                               Text="{Binding DefaultAbsoluteVolumeUpHotkey}" />
                     <TextBlock Grid.Row="1"
                                VerticalAlignment="Center"
                                Style="{StaticResource BodySubText}"
@@ -123,7 +123,7 @@
                     <TextBlock Grid.Column="1"
                                VerticalAlignment="Center"
                                Style="{StaticResource BodyText}"
-                               Text="{Binding DefaultSettingsHotKey}" />
+                               Text="{Binding DefaultAbsoluteVolumeDownHotkey}" />
                     <TextBlock Grid.Row="1"
                                VerticalAlignment="Center"
                                Style="{StaticResource BodySubText}"
